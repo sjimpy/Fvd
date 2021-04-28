@@ -1,13 +1,19 @@
-/* CSS Document */
+:root{
+	--cloudfront:gray;
+	--cloudsides:black;
+}
 
-/* FONTS */
 @font-face {
 	font-family: 'eenfont';
 	src: url('../fonts/eenfont.woff2') format('woff2'),
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+}
 
+@font-face {
+	font-family: 'minecraft';
+	src: url('../fonts/minecraft.woff') format('woff');
 }
 
 
@@ -39,21 +45,218 @@ section:first-of-type{
 	margin-left: 50%;
 	transform: translateX(-50%);
 	border:2px solid black;
-
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-image:
 		linear-gradient(#966c4a, #966c4a),
-		linear-gradient(0deg, rgba(172,201,253,1) 30%, rgba(125,172,255,1) 100%)
-	;
-
-	background-size:
-	2% 2%,
-	cover
-	;
+		linear-gradient(0deg, rgba(172,201,253,1) 30%, rgba(125,172,255,1) 100%);
+	background-size:2% 2%,cover;
 	background-repeat: no-repeat no-repeat;
 	background-position: center bottom;
+}
+
+section:first-of-type::before{
+	top: 80px;
+	left: 70px;
+	content: "";
+	background-color: var(--cloudfront);
+  width: 20px;
+	height: 20px;
+	position: absolute;
+	box-shadow: 1px 1px var(--cloudsides),
+     2px 2px var(--cloudsides),
+     3px 3px var(--cloudsides),
+     4px 4px var(--cloudsides),
+     5px 5px var(--cloudsides),
+     6px 6px var(--cloudsides),
+     7px 7px var(--cloudsides),
+     8px 8px var(--cloudsides);
+}
+section:first-of-type::after{
+	top: 100px;
+	left: 30px;
+	content: "";
+	background-color: var(--cloudfront);
+	width: 60px;
+	height: 20px;
+	position: absolute;
+	box-shadow: 1px 1px var(--cloudsides),
+     2px 2px var(--cloudsides),
+     3px 3px var(--cloudsides),
+     4px 4px var(--cloudsides),
+     5px 5px var(--cloudsides),
+     6px 6px var(--cloudsides),
+     7px 7px var(--cloudsides),
+     8px 8px var(--cloudsides);
 
 }
 
+section:first-of-type h2::before{
+	top: -120px;
+	left: 320px;
+	content: "";
+	background-color: var(--cloudfront);
+  width: 40px;
+	height: 20px;
+	position: absolute;
+	box-shadow: 1px 1px var(--cloudsides),
+     2px 2px var(--cloudsides),
+     3px 3px var(--cloudsides),
+     4px 4px var(--cloudsides),
+     5px 5px var(--cloudsides),
+     6px 6px var(--cloudsides),
+     7px 7px var(--cloudsides),
+     8px 8px var(--cloudsides);
+}
+section:first-of-type h2::after{
+	top: -100px;
+	left: 300px;
+	content: "";
+	background-color: var(--cloudfront);
+	width: 80px;
+	height: 20px;
+	position: absolute;
+	box-shadow: 1px 1px var(--cloudsides),
+     2px 2px var(--cloudsides),
+     3px 3px var(--cloudsides),
+     4px 4px var(--cloudsides),
+     5px 5px var(--cloudsides),
+     6px 6px var(--cloudsides),
+     7px 7px var(--cloudsides),
+     8px 8px var(--cloudsides);
+}
+/* section h2:first-of-type span::after,
+section h2:first-of-type span::before{
+	display: none;
+} */
+
+
+section:first-of-type h2{
+	position: absolute;
+	transform: scale(1);
+	color:gray;
+}
+section:first-of-type h2 span:nth-of-type(1){
+		z-index: auto;
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: 1px 1px var(--cloudsides),
+		     2px 2px var(--cloudsides),
+		     3px 3px var(--cloudsides),
+		     4px 4px var(--cloudsides),
+		     5px 5px var(--cloudsides),
+		     6px 6px var(--cloudsides),
+		     7px 7px var(--cloudsides),
+		     8px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(2){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: 1px 1px var(--cloudsides),
+		     2px 2px var(--cloudsides),
+		     2px 3px var(--cloudsides),
+		     3px 4px var(--cloudsides),
+		     4px 5px var(--cloudsides),
+		     4px 6px var(--cloudsides),
+		     5px 7px var(--cloudsides),
+		     6px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(3){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: 1px 1px var(--cloudsides),
+		     1px 2px var(--cloudsides),
+		     2px 3px var(--cloudsides),
+		     2px 4px var(--cloudsides),
+		     3px 5px var(--cloudsides),
+		     3px 6px var(--cloudsides),
+		     4px 7px var(--cloudsides),
+		     4px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(4){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: 1px 1px var(--cloudsides),
+		     1px 2px var(--cloudsides),
+		     1px 3px var(--cloudsides),
+		     1px 4px var(--cloudsides),
+		     2px 5px var(--cloudsides),
+		     2px 6px var(--cloudsides),
+		     2px 7px var(--cloudsides),
+		     2px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(5){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: 0px 1px var(--cloudsides),
+		     0px 2px var(--cloudsides),
+		     0px 3px var(--cloudsides),
+		     0px 4px var(--cloudsides),
+		     0px 5px var(--cloudsides),
+		     0px 6px var(--cloudsides),
+		     0px 7px var(--cloudsides),
+		     0px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(6){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: -1px 1px var(--cloudsides),
+		     -1px 2px var(--cloudsides),
+		     -1px 3px var(--cloudsides),
+		     -1px 4px var(--cloudsides),
+		     -2px 5px var(--cloudsides),
+		     -2px 6px var(--cloudsides),
+		     -2px 7px var(--cloudsides),
+		     -2px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(7){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: -1px 1px var(--cloudsides),
+		     -1px 2px var(--cloudsides),
+		     -2px 3px var(--cloudsides),
+		     -2px 4px var(--cloudsides),
+		     -3px 5px var(--cloudsides),
+		     -3px 6px var(--cloudsides),
+		     -4px 7px var(--cloudsides),
+		     -4px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(8){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: -1px 1px var(--cloudsides),
+		     -2px 2px var(--cloudsides),
+		     -2px 3px var(--cloudsides),
+		     -3px 4px var(--cloudsides),
+		     -4px 5px var(--cloudsides),
+		     -4px 6px var(--cloudsides),
+		     -5px 7px var(--cloudsides),
+		     -6px 8px var(--cloudsides);
+}
+
+section:first-of-type h2 span:nth-of-type(9){
+		font-family: 'minecraft';
+		font-size: 8vw;
+			text-shadow: -1px 1px var(--cloudsides),
+		     -2px 2px var(--cloudsides),
+		     -3px 3px var(--cloudsides),
+		     -4px 4px var(--cloudsides),
+		     -5px 5px var(--cloudsides),
+		     -6px 6px var(--cloudsides),
+		     -7px 7px var(--cloudsides),
+		     -8px 8px var(--cloudsides);
+}
+
+
+/* -------------------------------------------------------------------------- */
 
 
 section:last-of-type{
@@ -66,7 +269,33 @@ section:last-of-type{
 	margin-bottom: 5%;
 	transform: translateX(-50%);
 	border:2px solid black;
+	background-color: #d6001c;
 }
+section:last-of-type::before{
+	content: "";
+	background-color: transparent;
+	border: 8px solid white;
+	width: 9%;
+	height: 20%;
+	position: absolute;
+	left: 44.5%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 20px 0 0 20px;
+}
+section:last-of-type::after{
+	content: "";
+	background-color: white;
+	width: 9%;
+	height: 20%;
+	position: absolute;
+	left: 55.5%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 0 20px 20px 0;
+}
+
+
 
 
 /* BRAND STYLING */

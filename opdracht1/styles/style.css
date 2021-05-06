@@ -1,6 +1,112 @@
 :root{
-	--cloudfront:gray;
-	--cloudsides:black;
+  --headercolor:black;
+  --starColor: transparent;
+  --aircolor: to bottom, #9be2fe 0%, #67d1fb 100%;
+
+  --minecraftbg:0deg, rgba(172,201,253,1) 30%, rgba(125,172,255,1) 100%;
+	--cloudfront:#dde6f6;
+	--cloudsides:#b4bad4;
+	--cloudspeed: 30s;
+	--cloudDistance: -15s;
+
+	--textshadow:black;
+	--textcolor:-webkit-linear-gradient(#94938b, #c1bcb7);
+	--textcolor2:-webkit-linear-gradient(#D0CFC7, #FDF8F3);
+	--explosioncolor:white;
+
+	--mcKlr1:#966c4a;
+	--mcKlr2:#593d29;
+	--mcKlr3:#8dbc5d;
+	--mcKlr4:#75b54b;
+	--mcKlr5:#74b44a;
+	--mcKlr6:#79553a;
+	--mcKlr7:#6c6c6c;
+	--mcKlr8:#6cac42;
+	--mcKlr9:#76b64c;
+	--mcKlr10:#9ccb6c;
+	--mcKlr11:#8ab95a;
+	--mcKlr12:#73b349;
+	--mcKlr13:#b98555;
+	--mcKlr14:#64a43a;
+	--mcKlr15:#81b051;
+	--mcKlr16:#66a63c;
+	--mcKlr17:#71b147;
+	--mcKlr18:#69a93f;
+	--mcKlr19:#83b253;
+	--mcKlr20:#6faf45;
+	--mcKlr21:#68a83e;
+	--mcKlr22:#5f9f35;
+	--mcKlr23:#62a238;
+	--mcKlr24:#7ebe54;
+	--mcKlr25:#7fbf55;
+	--mcKlr26:#7fbf55;
+	--mcKlr27:#6dad43;
+	--mcKlr28:#92c162;
+	--mcKlr29:#90bf60;
+	--mcKlr30:#6aaa40;
+	--mcKlr31:#97c667;
+	--mcKlr32:#67a73d;
+	--mcKlr33:#61a137;
+	--mcKlr34:#57972d;
+	--mcKlr35:#60a036;
+	--mcKlr36:#509026;
+	--mcKlr37:#6bab41;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --headercolor:white;
+    --starColor: transparent;
+    --aircolor: to bottom, #020111 60%,#20202c 100%;
+
+  --minecraftbg:to bottom, #40405c 0%,#6f71aa 80%,#8a76ab 100%;
+  	--cloudfront:#dde6f6;
+  	--cloudsides:#b4bad4;
+  	--cloudspeed: 30s;
+  	--cloudDistance: -15s;
+
+  	--textshadow:black;
+  	--textcolor:-webkit-linear-gradient(#94938b, #c1bcb7);
+  	--explosioncolor:white;
+
+  	--mcKlr1:#966c4a;
+  	--mcKlr2:#593d29;
+  	--mcKlr3:#8dbc5d;
+  	--mcKlr4:#75b54b;
+  	--mcKlr5:#74b44a;
+  	--mcKlr6:#79553a;
+  	--mcKlr7:#6c6c6c;
+  	--mcKlr8:#6cac42;
+  	--mcKlr9:#76b64c;
+  	--mcKlr10:#9ccb6c;
+  	--mcKlr11:#8ab95a;
+  	--mcKlr12:#73b349;
+  	--mcKlr13:#b98555;
+  	--mcKlr14:#64a43a;
+  	--mcKlr15:#81b051;
+  	--mcKlr16:#66a63c;
+  	--mcKlr17:#71b147;
+  	--mcKlr18:#69a93f;
+  	--mcKlr19:#83b253;
+  	--mcKlr20:#6faf45;
+  	--mcKlr21:#68a83e;
+  	--mcKlr22:#5f9f35;
+  	--mcKlr23:#62a238;
+  	--mcKlr24:#7ebe54;
+  	--mcKlr25:#7fbf55;
+  	--mcKlr26:#7fbf55;
+  	--mcKlr27:#6dad43;
+  	--mcKlr28:#92c162;
+  	--mcKlr29:#90bf60;
+  	--mcKlr30:#6aaa40;
+  	--mcKlr31:#97c667;
+  	--mcKlr32:#67a73d;
+  	--mcKlr33:#61a137;
+  	--mcKlr34:#57972d;
+  	--mcKlr35:#60a036;
+  	--mcKlr36:#509026;
+  	--mcKlr37:#6bab41;
+  }
 }
 
 @font-face {
@@ -8,12 +114,12 @@
 	src: url('../fonts/eenfont.woff2') format('woff2'),
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
-	font-style: normal;
+	fonxwt-style: normal;
 }
 
 @font-face {
 	font-family: 'minecraft';
-	src: url('../fonts/minecraft.woff') format('woff');
+	src: url('../fonts/MinecrafterAlt.woff') format('woff');
 }
 
 
@@ -25,250 +131,859 @@
 *, *::after, *::before {
   box-sizing:border-box;
 }
-
+body::before{
+	z-index: -1;
+	content:"";
+	background: linear-gradient(var(--aircolor));
+	background-size: cover;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+}
 body {
+	position: relative;
   font-family:eenfont, sans-serif;
-  color:#111;
-  background-color:#eee;
 	text-align: center;
+	color: var(--headercolor);
 }
 
 h1{
 	padding: 1em;
 }
-
-section:first-of-type{
-	width: 80vh;
-	height: 80vh;
-	max-width: 80vw;
-	max-height: 80vw;
+section{
+	width: 90vw;
+	height: 90vw;
+	max-width: 700px;
+	max-height: 700px;
 	margin-left: 50%;
 	transform: translateX(-50%);
 	border:2px solid black;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	overflow: hidden;
+	margin-bottom: 5%;
+}
+
+/* -------------------------------------------------------------------------- 1e sectie */
+
+section:first-of-type{
 	background-image:
-		linear-gradient(#966c4a, #966c4a),
-		linear-gradient(0deg, rgba(172,201,253,1) 30%, rgba(125,172,255,1) 100%);
-	background-size:2% 2%,cover;
-	background-repeat: no-repeat no-repeat;
-	background-position: center bottom;
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr3), var(--mcKlr3)),
+		linear-gradient(var(--mcKlr4), var(--mcKlr4)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr10), var(--mcKlr10)),
+		linear-gradient(var(--mcKlr11), var(--mcKlr11)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr13), var(--mcKlr13)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr14), var(--mcKlr14)),
+		linear-gradient(var(--mcKlr15), var(--mcKlr15)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr17), var(--mcKlr17)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr19), var(--mcKlr19)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr21), var(--mcKlr21)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr23), var(--mcKlr23)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr24), var(--mcKlr24)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr25), var(--mcKlr25)),
+		linear-gradient(var(--mcKlr26), var(--mcKlr26)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+		linear-gradient(var(--mcKlr28), var(--mcKlr28)),
+		linear-gradient(var(--mcKlr29), var(--mcKlr29)),
+		linear-gradient(var(--mcKlr30), var(--mcKlr30)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr31), var(--mcKlr31)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr34), var(--mcKlr34)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr35), var(--mcKlr35)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr36), var(--mcKlr36)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr37), var(--mcKlr37)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr3), var(--mcKlr3)),
+		linear-gradient(var(--mcKlr4), var(--mcKlr4)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr10), var(--mcKlr10)),
+		linear-gradient(var(--mcKlr11), var(--mcKlr11)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr13), var(--mcKlr13)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr14), var(--mcKlr14)),
+		linear-gradient(var(--mcKlr15), var(--mcKlr15)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr17), var(--mcKlr17)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr19), var(--mcKlr19)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr21), var(--mcKlr21)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr23), var(--mcKlr23)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr24), var(--mcKlr24)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr25), var(--mcKlr25)),
+		linear-gradient(var(--mcKlr26), var(--mcKlr26)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+		linear-gradient(var(--mcKlr28), var(--mcKlr28)),
+		linear-gradient(var(--mcKlr29), var(--mcKlr29)),
+		linear-gradient(var(--mcKlr30), var(--mcKlr30)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr31), var(--mcKlr31)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr34), var(--mcKlr34)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr35), var(--mcKlr35)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr36), var(--mcKlr36)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr37), var(--mcKlr37)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr3), var(--mcKlr3)),
+		linear-gradient(var(--mcKlr4), var(--mcKlr4)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr10), var(--mcKlr10)),
+		linear-gradient(var(--mcKlr11), var(--mcKlr11)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr13), var(--mcKlr13)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr14), var(--mcKlr14)),
+		linear-gradient(var(--mcKlr15), var(--mcKlr15)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr17), var(--mcKlr17)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr19), var(--mcKlr19)),
+		linear-gradient(var(--mcKlr16), var(--mcKlr16)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr20), var(--mcKlr20)),
+		linear-gradient(var(--mcKlr21), var(--mcKlr21)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr23), var(--mcKlr23)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr22), var(--mcKlr22)),
+		linear-gradient(var(--mcKlr24), var(--mcKlr24)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr25), var(--mcKlr25)),
+		linear-gradient(var(--mcKlr26), var(--mcKlr26)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+		linear-gradient(var(--mcKlr28), var(--mcKlr28)),
+		linear-gradient(var(--mcKlr29), var(--mcKlr29)),
+		linear-gradient(var(--mcKlr30), var(--mcKlr30)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr31), var(--mcKlr31)),
+		linear-gradient(var(--mcKlr12), var(--mcKlr12)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr18), var(--mcKlr18)),
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr34), var(--mcKlr34)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr33), var(--mcKlr33)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr35), var(--mcKlr35)),
+		linear-gradient(var(--mcKlr32), var(--mcKlr32)),
+		linear-gradient(var(--mcKlr36), var(--mcKlr36)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr37), var(--mcKlr37)),
+		linear-gradient(var(--mcKlr27), var(--mcKlr27)),
+
+		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr3), var(--mcKlr3)),
+		linear-gradient(var(--mcKlr4), var(--mcKlr4)),
+		linear-gradient(var(--mcKlr5), var(--mcKlr5)),
+		linear-gradient(var(--mcKlr6), var(--mcKlr6)),
+		linear-gradient(var(--mcKlr7), var(--mcKlr7)),
+		linear-gradient(var(--mcKlr2), var(--mcKlr2)),
+		linear-gradient(var(--mcKlr8), var(--mcKlr8)),
+		linear-gradient(var(--mcKlr9), var(--mcKlr9)),
+
+		linear-gradient(var(--minecraftbg));
+	background-size:
+		2% 2%,2% 4%,2% 6%,2% 8%,2% 10%,
+		4% 2%,4% 4%,4% 6%,4% 8%,4% 10%,
+		6% 2%,6% 4%,6% 6%,6% 8%,6% 10%,
+		8% 2%,8% 4%,8% 6%,8% 8%,8% 10%,
+		10% 2%,10% 4%,10% 6%,10% 8%,10% 10%,
+		12% 2%,12% 4%,12% 6%,12% 8%,12% 10%,
+		14% 2%,14% 4%,14% 6%,14% 8%,14% 10%,
+		16% 2%,16% 4%,16% 6%,16% 8%,16% 10%,
+		18% 2%,18% 4%,18% 6%,18% 8%,18% 10%,
+		20% 2%,20% 4%,20% 6%,20% 8%,20% 10%,
+		22% 2%,22% 4%,22% 6%,22% 8%,22% 10%,
+		24% 2%,24% 4%,24% 6%,24% 8%,24% 10%,
+		26% 2%,26% 4%,26% 6%,26% 8%,26% 10%,
+		28% 2%,28% 4%,28% 6%,28% 8%,28% 10%,
+		30% 2%,30% 4%,30% 6%,30% 8%,30% 10%,
+		32% 2%,32% 4%,32% 6%,32% 8%,32% 10%,
+		34% 2%,34% 4%,34% 6%,34% 8%,34% 10%,
+		36% 2%,36% 4%,36% 6%,36% 8%,36% 10%,
+		38% 2%,38% 4%,38% 6%,38% 8%,38% 10%,
+		40% 2%,40% 4%,40% 6%,40% 8%,40% 10%,
+		42% 2%,42% 4%,42% 6%,42% 8%,42% 10%,
+		44% 2%,44% 4%,44% 6%,44% 8%,44% 10%,
+		46% 2%,46% 4%,46% 6%,46% 8%,46% 10%,
+		48% 2%,48% 4%,48% 6%,48% 8%,48% 10%,
+		50% 2%,50% 4%,50% 6%,50% 8%,50% 10%,
+		52% 2%,52% 4%,52% 6%,52% 8%,52% 10%,
+		54% 2%,54% 4%,54% 6%,54% 8%,54% 10%,
+		56% 2%,56% 4%,56% 6%,56% 8%,56% 10%,
+		58% 2%,58% 4%,58% 6%,58% 8%,58% 10%,
+		60% 2%,60% 4%,60% 6%,60% 8%,60% 10%,
+		62% 2%,62% 4%,62% 6%,62% 8%,62% 10%,
+		64% 2%,64% 4%,64% 6%,64% 8%,64% 10%,
+		66% 2%,66% 4%,66% 6%,66% 8%,66% 10%,
+		68% 2%,68% 4%,68% 6%,68% 8%,68% 10%,
+		70% 2%,70% 4%,70% 6%,70% 8%,70% 10%,
+		72% 2%,72% 4%,72% 6%,72% 8%,72% 10%,
+		74% 2%,74% 4%,74% 6%,74% 8%,74% 10%,
+		76% 2%,76% 4%,76% 6%,76% 8%,76% 10%,
+		78% 2%,78% 4%,78% 6%,78% 8%,78% 10%,
+		80% 2%,80% 4%,80% 6%,80% 8%,80% 10%,
+		82% 2%,82% 4%,82% 6%,82% 8%,82% 10%,
+		84% 2%,84% 4%,84% 6%,84% 8%,84% 10%,
+		86% 2%,86% 4%,86% 6%,86% 8%,86% 10%,
+		88% 2%,88% 4%,88% 6%,88% 8%,88% 10%,
+		90% 2%,90% 4%,90% 6%,90% 8%,90% 10%,
+		92% 2%,92% 4%,92% 6%,92% 8%,92% 10%,
+		94% 2%,94% 4%,94% 6%,94% 8%,94% 10%,
+		96% 2%,96% 4%,96% 6%,96% 8%,96% 10%,
+		98% 2%,98% 4%,98% 6%,98% 8%,98% 10%,
+		100% 2%,100% 4%,100% 6%,100% 8%,100% 10%,
+	cover;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+section:first-of-type::before,
+section:first-of-type::after,
+section:first-of-type h2::before,
+section:first-of-type h2::after{
+	content: "";
+	position: absolute;
+	background-color: var(--cloudfront);
+	box-shadow: 1px 1px var(--cloudsides),
+     2px 2px var(--cloudsides),
+     3px 3px var(--cloudsides),
+     4px 4px var(--cloudsides),
+     5px 5px var(--cloudsides),
+     6px 6px var(--cloudsides),
+     7px 7px var(--cloudsides),
+     8px 8px var(--cloudsides);
+	animation-duration: var(--cloudspeed);
+	animation-iteration-count:infinite;
+	animation-timing-function: linear;
 }
 
 section:first-of-type::before{
-	top: 80px;
-	left: 70px;
-	content: "";
-	background-color: var(--cloudfront);
-  width: 20px;
-	height: 20px;
-	position: absolute;
-	box-shadow: 1px 1px var(--cloudsides),
-     2px 2px var(--cloudsides),
-     3px 3px var(--cloudsides),
-     4px 4px var(--cloudsides),
-     5px 5px var(--cloudsides),
-     6px 6px var(--cloudsides),
-     7px 7px var(--cloudsides),
-     8px 8px var(--cloudsides);
+	top: 25%;
+  width: 5%;
+	height: 5%;
+	animation-name: cloudAni1;
+	animation-delay: var(--cloudDistance);
 }
 section:first-of-type::after{
-	top: 100px;
-	left: 30px;
-	content: "";
-	background-color: var(--cloudfront);
-	width: 60px;
-	height: 20px;
-	position: absolute;
-	box-shadow: 1px 1px var(--cloudsides),
-     2px 2px var(--cloudsides),
-     3px 3px var(--cloudsides),
-     4px 4px var(--cloudsides),
-     5px 5px var(--cloudsides),
-     6px 6px var(--cloudsides),
-     7px 7px var(--cloudsides),
-     8px 8px var(--cloudsides);
-
+	top: 30%;
+	width: 15%;
+	height: 5%;
+	animation-name: cloudAni2;
+	animation-delay: var(--cloudDistance);
 }
 
 section:first-of-type h2::before{
-	top: -120px;
-	left: 320px;
-	content: "";
-	background-color: var(--cloudfront);
-  width: 40px;
-	height: 20px;
-	position: absolute;
-	box-shadow: 1px 1px var(--cloudsides),
-     2px 2px var(--cloudsides),
-     3px 3px var(--cloudsides),
-     4px 4px var(--cloudsides),
-     5px 5px var(--cloudsides),
-     6px 6px var(--cloudsides),
-     7px 7px var(--cloudsides),
-     8px 8px var(--cloudsides);
+	top: 15%;
+  width: 10%;
+	height: 5%;
+	animation-name: cloudAni3;
 }
 section:first-of-type h2::after{
-	top: -100px;
-	left: 300px;
-	content: "";
-	background-color: var(--cloudfront);
-	width: 80px;
-	height: 20px;
-	position: absolute;
-	box-shadow: 1px 1px var(--cloudsides),
-     2px 2px var(--cloudsides),
-     3px 3px var(--cloudsides),
-     4px 4px var(--cloudsides),
-     5px 5px var(--cloudsides),
-     6px 6px var(--cloudsides),
-     7px 7px var(--cloudsides),
-     8px 8px var(--cloudsides);
+	top: 20%;
+	width: 20%;
+	height: 5%;
+	animation-name: cloudAni4;
 }
-/* section h2:first-of-type span::after,
-section h2:first-of-type span::before{
-	display: none;
-} */
 
 
 section:first-of-type h2{
 	position: absolute;
 	transform: scale(1);
-	color:gray;
+	font-family: 'minecraft';
+	color:black;
+	font-size: 11vw;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	animation-delay: 3s;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-name: growLetter;
+	animation-fill-mode: forwards;
 }
+section:first-of-type h2 span{
+	opacity: 0;
+
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+  animation-duration: .05s, 1s;
+}
+section:first-of-type h2 span:before{
+  position: absolute;
+  color: red;
+  text-shadow: none;
+  background: var(--textcolor);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(-10%);
+
+  animation-name: blinking;
+  animation-delay: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-duration: 4s;
+}
+
+/* -------------------------------------------------------------------------- LETTER "M" */
 section:first-of-type h2 span:nth-of-type(1){
-		z-index: auto;
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: 1px 1px var(--cloudsides),
-		     2px 2px var(--cloudsides),
-		     3px 3px var(--cloudsides),
-		     4px 4px var(--cloudsides),
-		     5px 5px var(--cloudsides),
-		     6px 6px var(--cloudsides),
-		     7px 7px var(--cloudsides),
-		     8px 8px var(--cloudsides);
+	z-index: auto;
+	text-shadow: 1px 1px var(--textshadow),
+		     2px 2px var(--textshadow),
+		     3px 3px var(--textshadow),
+		     4px 4px var(--textshadow),
+		     5px 5px var(--textshadow),
+		     6px 6px var(--textshadow),
+		     7px 7px var(--textshadow),
+		     8px 8px var(--textshadow);
+  animation-name: showLetter, explosion1;
+	animation-delay: 1s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(1):before{
+  content: "m";
+  padding-top: 13%;
 }
 
+/* -------------------------------------------------------------------------- LETTER "I" */
 section:first-of-type h2 span:nth-of-type(2){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: 1px 1px var(--cloudsides),
-		     2px 2px var(--cloudsides),
-		     2px 3px var(--cloudsides),
-		     3px 4px var(--cloudsides),
-		     4px 5px var(--cloudsides),
-		     4px 6px var(--cloudsides),
-		     5px 7px var(--cloudsides),
-		     6px 8px var(--cloudsides);
+	text-shadow: 1px 1px var(--textshadow),
+		     2px 2px var(--textshadow),
+		     2px 3px var(--textshadow),
+		     3px 4px var(--textshadow),
+		     4px 5px var(--textshadow),
+		     4px 6px var(--textshadow),
+		     5px 7px var(--textshadow),
+		     6px 8px var(--textshadow);
+  animation-name: showLetter, explosion2;
+  animation-delay: 1.2s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(2):before{
+  content: "i";
+  padding-top: 30%;
 }
 
+
+/* -------------------------------------------------------------------------- LETTER "N" */
 section:first-of-type h2 span:nth-of-type(3){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: 1px 1px var(--cloudsides),
-		     1px 2px var(--cloudsides),
-		     2px 3px var(--cloudsides),
-		     2px 4px var(--cloudsides),
-		     3px 5px var(--cloudsides),
-		     3px 6px var(--cloudsides),
-		     4px 7px var(--cloudsides),
-		     4px 8px var(--cloudsides);
+	text-shadow: 1px 1px var(--textshadow),
+		     1px 2px var(--textshadow),
+		     2px 3px var(--textshadow),
+		     2px 4px var(--textshadow),
+		     3px 5px var(--textshadow),
+		     3px 6px var(--textshadow),
+		     4px 7px var(--textshadow),
+		     4px 8px var(--textshadow);
+  animation-name: showLetter, explosion3;
+  animation-delay: 1.4s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(3):before{
+  content: "n";
+  padding-top: 13%;
 }
 
+
+/* -------------------------------------------------------------------------- LETTER "E" */
 section:first-of-type h2 span:nth-of-type(4){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: 1px 1px var(--cloudsides),
-		     1px 2px var(--cloudsides),
-		     1px 3px var(--cloudsides),
-		     1px 4px var(--cloudsides),
-		     2px 5px var(--cloudsides),
-		     2px 6px var(--cloudsides),
-		     2px 7px var(--cloudsides),
-		     2px 8px var(--cloudsides);
+	text-shadow: 1px 1px var(--textshadow),
+		     1px 2px var(--textshadow),
+		     1px 3px var(--textshadow),
+		     1px 4px var(--textshadow),
+		     2px 5px var(--textshadow),
+		     2px 6px var(--textshadow),
+		     2px 7px var(--textshadow),
+		     2px 8px var(--textshadow);
+  animation-name: showLetter, explosion4;
+  animation-delay: 1.6s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(4):before{
+  content: "e";
+  padding-top: 15%;
 }
 
+/* -------------------------------------------------------------------------- LETTER "C" */
 section:first-of-type h2 span:nth-of-type(5){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: 0px 1px var(--cloudsides),
-		     0px 2px var(--cloudsides),
-		     0px 3px var(--cloudsides),
-		     0px 4px var(--cloudsides),
-		     0px 5px var(--cloudsides),
-		     0px 6px var(--cloudsides),
-		     0px 7px var(--cloudsides),
-		     0px 8px var(--cloudsides);
+	text-shadow: 0px 1px var(--textshadow),
+		     0px 2px var(--textshadow),
+		     0px 3px var(--textshadow),
+		     0px 4px var(--textshadow),
+		     0px 5px var(--textshadow),
+		     0px 6px var(--textshadow),
+		     0px 7px var(--textshadow),
+		     0px 8px var(--textshadow);
+  animation-name: showLetter, explosion5;
+  animation-delay: 1.8s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(5):before{
+  content: "c";
+  padding-top: 15%;
 }
 
+/* -------------------------------------------------------------------------- LETTER "R" */
 section:first-of-type h2 span:nth-of-type(6){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: -1px 1px var(--cloudsides),
-		     -1px 2px var(--cloudsides),
-		     -1px 3px var(--cloudsides),
-		     -1px 4px var(--cloudsides),
-		     -2px 5px var(--cloudsides),
-		     -2px 6px var(--cloudsides),
-		     -2px 7px var(--cloudsides),
-		     -2px 8px var(--cloudsides);
+	text-shadow: -1px 1px var(--textshadow),
+		     -1px 2px var(--textshadow),
+		     -1px 3px var(--textshadow),
+		     -1px 4px var(--textshadow),
+		     -2px 5px var(--textshadow),
+		     -2px 6px var(--textshadow),
+		     -2px 7px var(--textshadow),
+		     -2px 8px var(--textshadow);
+	z-index: 3;
+  animation-name: showLetter, explosion6;
+  animation-delay: 2s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(6):before{
+  content: "r";
+  padding-top: 15%;
 }
 
+
+/* -------------------------------------------------------------------------- LETTER "A" */
 section:first-of-type h2 span:nth-of-type(7){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: -1px 1px var(--cloudsides),
-		     -1px 2px var(--cloudsides),
-		     -2px 3px var(--cloudsides),
-		     -2px 4px var(--cloudsides),
-		     -3px 5px var(--cloudsides),
-		     -3px 6px var(--cloudsides),
-		     -4px 7px var(--cloudsides),
-		     -4px 8px var(--cloudsides);
+	text-shadow: -1px 1px var(--textshadow),
+		     -1px 2px var(--textshadow),
+		     -2px 3px var(--textshadow),
+		     -2px 4px var(--textshadow),
+		     -3px 5px var(--textshadow),
+		     -3px 6px var(--textshadow),
+		     -4px 7px var(--textshadow),
+		     -4px 8px var(--textshadow);
+	z-index: 2;
+  animation-name: showLetter, explosion7;
+  animation-delay: 2.2s, 7s;
 }
-
+section:first-of-type h2 span:nth-of-type(7):before{
+  content: "a";
+  padding-top: 15%;
+}
+/* -------------------------------------------------------------------------- LETTER "F" */
 section:first-of-type h2 span:nth-of-type(8){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: -1px 1px var(--cloudsides),
-		     -2px 2px var(--cloudsides),
-		     -2px 3px var(--cloudsides),
-		     -3px 4px var(--cloudsides),
-		     -4px 5px var(--cloudsides),
-		     -4px 6px var(--cloudsides),
-		     -5px 7px var(--cloudsides),
-		     -6px 8px var(--cloudsides);
+	text-shadow: -1px 1px var(--textshadow),
+		     -2px 2px var(--textshadow),
+		     -2px 3px var(--textshadow),
+		     -3px 4px var(--textshadow),
+		     -4px 5px var(--textshadow),
+		     -4px 6px var(--textshadow),
+		     -5px 7px var(--textshadow),
+		     -6px 8px var(--textshadow);
+	z-index: 1;
+  animation-name: showLetter, explosion8;
+  animation-delay: 2.4s, 7s;
 }
-
+section:first-of-type h2 span:nth-of-type(8):before{
+  content: "f";
+  padding-top: 15%;
+}
+/* -------------------------------------------------------------------------- LETTER "T" */
 section:first-of-type h2 span:nth-of-type(9){
-		font-family: 'minecraft';
-		font-size: 8vw;
-			text-shadow: -1px 1px var(--cloudsides),
-		     -2px 2px var(--cloudsides),
-		     -3px 3px var(--cloudsides),
-		     -4px 4px var(--cloudsides),
-		     -5px 5px var(--cloudsides),
-		     -6px 6px var(--cloudsides),
-		     -7px 7px var(--cloudsides),
-		     -8px 8px var(--cloudsides);
+	text-shadow: -1px 1px var(--textshadow),
+		     -2px 2px var(--textshadow),
+		     -3px 3px var(--textshadow),
+		     -4px 4px var(--textshadow),
+		     -5px 5px var(--textshadow),
+		     -6px 6px var(--textshadow),
+		     -7px 7px var(--textshadow),
+		     -8px 8px var(--textshadow);
+	z-index: 0;
+  animation-name: showLetter, explosion9;
+  animation-delay: 2.6s, 7s;
+}
+section:first-of-type h2 span:nth-of-type(9):before{
+  content: "t";
+  padding-top: 15%;
 }
 
 
-/* -------------------------------------------------------------------------- */
+@keyframes cloudAni1 {
+  from {
+		left: -10%;
+		box-shadow: 1px 1px var(--cloudsides),
+			 2px 2px var(--cloudsides),
+			 3px 3px var(--cloudsides),
+			 4px 4px var(--cloudsides),
+			 5px 5px var(--cloudsides),
+			 6px 6px var(--cloudsides),
+			 7px 7px var(--cloudsides),
+			 8px 8px var(--cloudsides);
+	}
+  to {
+		left: 130%;
+		box-shadow: -1px 1px var(--cloudsides),
+			 -2px 2px var(--cloudsides),
+			 -3px 3px var(--cloudsides),
+			 -4px 4px var(--cloudsides),
+			 -5px 5px var(--cloudsides),
+			 -6px 6px var(--cloudsides),
+			 -7px 7px var(--cloudsides),
+			 -8px 8px var(--cloudsides);
+	}
+}
+@keyframes cloudAni2 {
+  from {
+		left: -20%;
+		box-shadow: 1px 1px var(--cloudsides),
+			 2px 2px var(--cloudsides),
+			 3px 3px var(--cloudsides),
+			 4px 4px var(--cloudsides),
+			 5px 5px var(--cloudsides),
+			 6px 6px var(--cloudsides),
+			 7px 7px var(--cloudsides),
+			 8px 8px var(--cloudsides);
+	}
+  to {
+		left: 120%;
+		box-shadow: -1px 1px var(--cloudsides),
+			 -2px 2px var(--cloudsides),
+			 -3px 3px var(--cloudsides),
+			 -4px 4px var(--cloudsides),
+			 -5px 5px var(--cloudsides),
+			 -6px 6px var(--cloudsides),
+			 -7px 7px var(--cloudsides),
+			 -8px 8px var(--cloudsides);
+	}
+}
+@keyframes cloudAni3 {
+  from {
+		left: -20%;
+		box-shadow: 1px 1px var(--cloudsides),
+			 2px 2px var(--cloudsides),
+			 3px 3px var(--cloudsides),
+			 4px 4px var(--cloudsides),
+			 5px 5px var(--cloudsides),
+			 6px 6px var(--cloudsides),
+			 7px 7px var(--cloudsides),
+			 8px 8px var(--cloudsides);
+	}
+  to {
+		left: 130%;
+		box-shadow: -1px 1px var(--cloudsides),
+			 -2px 2px var(--cloudsides),
+			 -3px 3px var(--cloudsides),
+			 -4px 4px var(--cloudsides),
+			 -5px 5px var(--cloudsides),
+			 -6px 6px var(--cloudsides),
+			 -7px 7px var(--cloudsides),
+			 -8px 8px var(--cloudsides);
+	}
+}
+@keyframes cloudAni4 {
+  from {
+		left: -25%;
+		box-shadow: 1px 1px var(--cloudsides),
+			 2px 2px var(--cloudsides),
+			 3px 3px var(--cloudsides),
+			 4px 4px var(--cloudsides),
+			 5px 5px var(--cloudsides),
+			 6px 6px var(--cloudsides),
+			 7px 7px var(--cloudsides),
+			 8px 8px var(--cloudsides);
+	}
+  to {
+		left: 125%;
+		box-shadow: -1px 1px var(--cloudsides),
+			 -2px 2px var(--cloudsides),
+			 -3px 3px var(--cloudsides),
+			 -4px 4px var(--cloudsides),
+			 -5px 5px var(--cloudsides),
+			 -6px 6px var(--cloudsides),
+			 -7px 7px var(--cloudsides),
+			 -8px 8px var(--cloudsides);
+	}
+}
 
+@keyframes showLetter {
+	from {
+		opacity: 0;
+	}
+  to {
+		opacity: 1;
+	}
+}
+
+@keyframes growLetter {
+  from{
+    color: scale(0);
+  }
+  to{
+    transform: scale(1.2);
+  }
+}
+@keyframes blinking {
+  0%{
+    background: var(--textcolor);
+  }
+  23%{
+    background: var(--textcolor);
+  }
+  25%{
+    background: var(--textcolor2);
+  }
+  35%{
+    background: var(--textcolor2);
+  }
+  36%{
+    background: var(--textcolor);
+  }
+  49%{
+    background: var(--textcolor);
+  }
+  50%{
+    background: var(--textcolor2);
+  }
+  60%{
+    background: var(--textcolor2);
+  }
+  61%{
+    background: var(--textcolor);
+  }
+  74%{
+    background: var(--textcolor);
+  }
+  75%{
+    background: var(--textcolor2);
+  }
+  85%{
+    background: var(--textcolor2);
+  }
+  86%{
+    background: var(--textcolor);
+  }
+  100%{
+  }
+}
+
+@keyframes explosion1 {
+  0%{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-400%, -300%) rotate(-720deg);
+  }
+}
+@keyframes explosion2 {
+  0%{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-300%, -380%) rotate(-500deg) rotateX(-100deg);
+  }
+}
+@keyframes explosion3 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(-200%, -420%) rotate(-200deg) rotateX(-200deg);
+  }
+}
+@keyframes explosion4 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(-100%, -450%) rotate(-100deg) rotateX(-400deg);
+  }
+}
+@keyframes explosion5 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(0%, -470%) rotate(-0deg) rotateX(-500deg);
+  }
+}
+@keyframes explosion6 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(100%, -450%) rotate(100deg) rotateX(-400deg);
+  }
+}
+@keyframes explosion7 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(200%, -400%) rotate(200deg) rotateX(-200deg);
+  }
+}
+@keyframes explosion8 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(300%, -380%) rotate(500deg) rotateX(-100deg);
+  }
+}
+@keyframes explosion9 {
+  from{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  to{
+    transform: translate(400%, -300%) rotate(720deg);
+  }
+}
+
+
+
+@media only screen and (min-width: 778px) {
+	section:first-of-type h2{
+		font-size: 83px;
+	}
+}
+
+/* -------------------------------------------------------------------------- 2e sectie */
 
 section:last-of-type{
-	width: 80vh;
-	height: 80vh;
-	max-width: 80vw;
-	max-height: 80vw;
-	margin-left: 50%;
 	margin-top: 5%;
-	margin-bottom: 5%;
-	transform: translateX(-50%);
-	border:2px solid black;
 	background-color: #d6001c;
 }
 section:last-of-type::before{
@@ -294,8 +1009,3 @@ section:last-of-type::after{
 	transform: translate(-50%, -50%);
 	border-radius: 0 20px 20px 0;
 }
-
-
-
-
-/* BRAND STYLING */

@@ -22,7 +22,6 @@
 
 :root{
   --headercolor:black;
-  --starColor: transparent;
   --aircolor: to bottom, #9be2fe 0%, #67d1fb 100%;
 
   --minecraftbg:0deg, rgba(172,201,253,1) 30%, rgba(125,172,255,1) 100%;
@@ -157,6 +156,7 @@ body::before{
 	top: 0;
 }
 body {
+  background-color: black;
 	position: relative;
   font-family:eenfont, sans-serif;
 	text-align: center;
@@ -546,7 +546,6 @@ section:first-of-type h2::after{
   z-index: 1;
 }
 
-
 section:first-of-type h2{
 	position: absolute;
 	transform: scale(1);
@@ -562,7 +561,6 @@ section:first-of-type h2{
 	animation-delay: 3s;
 	animation-duration: 4s;
 	animation-timing-function: linear;
-	animation-name: growLetter;
 	animation-fill-mode: forwards;
 }
 section:first-of-type h2 span{
@@ -580,7 +578,6 @@ section:first-of-type h2 span:before{
   -webkit-text-fill-color: transparent;
   transform: translateY(-10%);
 
-  animation-name: blinking;
   animation-delay: 3s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
@@ -598,7 +595,6 @@ section:first-of-type h2 span:nth-of-type(1){
 		     6px 6px var(--textshadow),
 		     7px 7px var(--textshadow),
 		     8px 8px var(--textshadow);
-  animation-name: showLetter, explosion1;
 	animation-delay: 1s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(1):before{
@@ -616,7 +612,6 @@ section:first-of-type h2 span:nth-of-type(2){
 		     4px 6px var(--textshadow),
 		     5px 7px var(--textshadow),
 		     6px 8px var(--textshadow);
-  animation-name: showLetter, explosion2;
   animation-delay: 1.2s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(2):before{
@@ -635,7 +630,6 @@ section:first-of-type h2 span:nth-of-type(3){
 		     3px 6px var(--textshadow),
 		     4px 7px var(--textshadow),
 		     4px 8px var(--textshadow);
-  animation-name: showLetter, explosion3;
   animation-delay: 1.4s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(3):before{
@@ -654,7 +648,6 @@ section:first-of-type h2 span:nth-of-type(4){
 		     2px 6px var(--textshadow),
 		     2px 7px var(--textshadow),
 		     2px 8px var(--textshadow);
-  animation-name: showLetter, explosion4;
   animation-delay: 1.6s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(4):before{
@@ -672,7 +665,6 @@ section:first-of-type h2 span:nth-of-type(5){
 		     0px 6px var(--textshadow),
 		     0px 7px var(--textshadow),
 		     0px 8px var(--textshadow);
-  animation-name: showLetter, explosion5;
   animation-delay: 1.8s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(5):before{
@@ -691,7 +683,6 @@ section:first-of-type h2 span:nth-of-type(6){
 		     -2px 7px var(--textshadow),
 		     -2px 8px var(--textshadow);
 	z-index: 3;
-  animation-name: showLetter, explosion6;
   animation-delay: 2s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(6):before{
@@ -711,7 +702,6 @@ section:first-of-type h2 span:nth-of-type(7){
 		     -4px 7px var(--textshadow),
 		     -4px 8px var(--textshadow);
 	z-index: 2;
-  animation-name: showLetter, explosion7;
   animation-delay: 2.2s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(7):before{
@@ -729,7 +719,6 @@ section:first-of-type h2 span:nth-of-type(8){
 		     -5px 7px var(--textshadow),
 		     -6px 8px var(--textshadow);
 	z-index: 1;
-  animation-name: showLetter, explosion8;
   animation-delay: 2.4s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(8):before{
@@ -747,13 +736,47 @@ section:first-of-type h2 span:nth-of-type(9){
 		     -7px 7px var(--textshadow),
 		     -8px 8px var(--textshadow);
 	z-index: 0;
-  animation-name: showLetter, explosion9;
   animation-delay: 2.6s, 7s;
 }
 section:first-of-type h2 span:nth-of-type(9):before{
   content: "t";
   padding-top: 15%;
 }
+
+section:first-of-type:hover h2{
+	animation-name: growLetter;
+}
+section:first-of-type:hover h2 span:before{
+  animation-name: blinking;
+}
+section:first-of-type:hover h2 span:nth-of-type(1){
+  animation-name: showLetter, explosion1;
+}
+section:first-of-type:hover h2 span:nth-of-type(2){
+  animation-name: showLetter, explosion2;
+}
+section:first-of-type:hover h2 span:nth-of-type(3){
+  animation-name: showLetter, explosion3;
+}
+section:first-of-type:hover h2 span:nth-of-type(4){
+  animation-name: showLetter, explosion4;
+}
+section:first-of-type:hover h2 span:nth-of-type(5){
+  animation-name: showLetter, explosion5;
+}
+section:first-of-type:hover h2 span:nth-of-type(6){
+  animation-name: showLetter, explosion6;
+}
+section:first-of-type:hover h2 span:nth-of-type(7){
+  animation-name: showLetter, explosion7;
+}
+section:first-of-type:hover h2 span:nth-of-type(8){
+  animation-name: showLetter, explosion8;
+}
+section:first-of-type:hover h2 span:nth-of-type(9){
+  animation-name: showLetter, explosion9;
+}
+
 
 
 @keyframes cloudAni1 {
@@ -1003,11 +1026,11 @@ section:last-of-type h2{
   justify-content: center;
   align-items: center;
 
-  animation-name: impact;
   animation-duration: .4s;
   animation-delay: .25s;
   animation-iteration-count: 2;
   animation-direction: alternate;
+  pointer-events: none;
 }
 section:last-of-type h2::before{
 	content: "";
@@ -1016,7 +1039,7 @@ section:last-of-type h2::before{
      linear-gradient(var(--nintendoRed), var(--nintendoRed));
   background-repeat: no-repeat;
   background-size: 5vw 5vw, cover;
-  background-position: center 20%;
+  background-position: 50% 20%;
 	border: 1.2vw solid white;
 	width: 13%;
 	height: 100%;
@@ -1026,14 +1049,42 @@ section:last-of-type h2::before{
 	transform: translate(-110%, -50%);
 	border-radius: 5vw 0 0 5vw;
   z-index: 1;
+  transition: .8s;
 
-  animation-name: mouveout2;
   animation-duration: 5s;
   animation-fill-mode: forwards;
   animation-delay: 1s;
   animation-timing-function: ease-in-out;
   animation-direction: normal;
 }
+section:last-of-type .linksboven::before{
+  background-position: 20% 10%;
+}
+section:last-of-type .linksmidden::before{
+  background-position: 20% 20%;
+}
+section:last-of-type .linksonder::before{
+  background-position: 20% 30%;
+}
+section:last-of-type .middenboven::before{
+  background-position: 50% 10%;
+}
+section:last-of-type .middenmidden::before{
+  background-position: 50% 20%;
+}
+section:last-of-type .middenonder::before{
+  background-position: 50% 30%;
+}
+section:last-of-type .rechtsboven::before{
+  background-position: 80% 10%;
+}
+section:last-of-type .rechtsmidden::before{
+  background-position: 80% 20%;
+}
+section:last-of-type .rechtsonder::before{
+  background-position: 80% 30%;
+}
+
 section:last-of-type h2::after{
 	content: "";
 	background:
@@ -1041,22 +1092,49 @@ section:last-of-type h2::after{
      linear-gradient(white, white);
   background-repeat: no-repeat;
   background-size: 5vw 5vw, cover;
-  background-position: center 65%;
+  background-position: 50% 65%;
 	width: 13%;
 	height: 100%;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(10%, -100%);
+	transform: translate(10%, -150%);
 	border-radius: 0 5vw 5vw 0;
   z-index: 1;
+  transition: .8s;
 
-  animation-name: movedown, mouveout1;
   animation-duration: .3s, 5s;
   animation-fill-mode: forwards;
   animation-delay: 0s, 1s;
   animation-timing-function: linear, ease-in-out;
   animation-direction: normal, normal;
+}
+section:last-of-type .linksboven::after{
+  background-position: 20% 55%;
+}
+section:last-of-type .linksmidden::after{
+  background-position: 20% 65%;
+}
+section:last-of-type .linksonder::after{
+  background-position: 20% 75%;
+}
+section:last-of-type .middenboven::after{
+  background-position: 50% 55%;
+}
+section:last-of-type .middenmidden::after{
+  background-position: 50% 65%;
+}
+section:last-of-type .middenonder::after{
+  background-position: 50% 75%;
+}
+section:last-of-type .rechtsboven::after{
+  background-position: 80% 55%;
+}
+section:last-of-type .rechtsmidden::after{
+  background-position: 80% 65%;
+}
+section:last-of-type .rechtsonder::after{
+  background-position: 80% 75%;
 }
 
 section:last-of-type span{
@@ -1069,7 +1147,6 @@ section:last-of-type span{
   overflow: hidden;
   opacity: 0;
 
-  animation-name: showSpawns, showSpawns2;
   animation-duration: 5s, .1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
@@ -1088,6 +1165,20 @@ section:last-of-type span:last-of-type{
 
   animation-delay: 1s, 4.6s;
 }
+
+section:last-of-type:hover h2::before{
+  animation-name: mouveout2;
+}
+section:last-of-type:hover h2::after{
+  animation-name: movedown, mouveout1;
+}
+section:last-of-type:hover span{
+  animation-name: showSpawns, showSpawns2;
+}
+section:last-of-type:hover h2{
+  animation-name: impact;
+}
+
 
 @keyframes movedown {
   from{
@@ -1194,5 +1285,11 @@ section:last-of-type span:last-of-type{
   section:last-of-type h2::after{
   	border-radius: 0 40px 40px 0;
     background-size: 40px 40px, cover;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  body{
+    background-color: red !important;
   }
 }

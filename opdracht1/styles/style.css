@@ -1,3 +1,25 @@
+@font-face {
+	font-family: 'eenfont';
+	src: url('../fonts/eenfont.woff2') format('woff2'),
+			 url('../fonts/eenfont.woff') format('woff');
+	font-weight: normal;
+	fonxwt-style: normal;
+}
+
+@font-face {
+	font-family: 'minecraft';
+	src: url('../fonts/MinecrafterAlt.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'nintendo';
+	src: url('../fonts/nintendo.woff') format('woff');
+}
+@font-face {
+	font-family: 'switch';
+	src: url('../fonts/switch.woff') format('woff');
+}
+
 :root{
   --headercolor:black;
   --starColor: transparent;
@@ -51,6 +73,11 @@
 	--mcKlr35:#60a036;
 	--mcKlr36:#509026;
 	--mcKlr37:#6bab41;
+
+
+
+
+  --nintendoRed:#d6001c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,19 +134,6 @@
   	--mcKlr36:#509026;
   	--mcKlr37:#6bab41;
   }
-}
-
-@font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
-	font-weight: normal;
-	fonxwt-style: normal;
-}
-
-@font-face {
-	font-family: 'minecraft';
-	src: url('../fonts/MinecrafterAlt.woff') format('woff');
 }
 
 
@@ -522,12 +536,14 @@ section:first-of-type h2::before{
   width: 10%;
 	height: 5%;
 	animation-name: cloudAni3;
+  z-index: 1;
 }
 section:first-of-type h2::after{
 	top: 20%;
 	width: 20%;
 	height: 5%;
 	animation-name: cloudAni4;
+  z-index: 1;
 }
 
 
@@ -558,7 +574,6 @@ section:first-of-type h2 span{
 }
 section:first-of-type h2 span:before{
   position: absolute;
-  color: red;
   text-shadow: none;
   background: var(--textcolor);
   -webkit-background-clip: text !important;
@@ -972,40 +987,212 @@ section:first-of-type h2 span:nth-of-type(9):before{
   }
 }
 
-
-
-@media only screen and (min-width: 778px) {
-	section:first-of-type h2{
-		font-size: 83px;
-	}
-}
-
 /* -------------------------------------------------------------------------- 2e sectie */
 
 section:last-of-type{
 	margin-top: 5%;
 	background-color: #d6001c;
 }
-section:last-of-type::before{
-	content: "";
-	background-color: transparent;
-	border: 8px solid white;
-	width: 9%;
-	height: 20%;
-	position: absolute;
-	left: 44.5%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 20px 0 0 20px;
+section:last-of-type h2{
+  position: absolute;
+  width: 90%;
+  white-space: nowrap;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  animation-name: impact;
+  animation-duration: .4s;
+  animation-delay: .25s;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
 }
-section:last-of-type::after{
+section:last-of-type h2::before{
 	content: "";
-	background-color: white;
-	width: 9%;
-	height: 20%;
+  background:
+     radial-gradient(white 60%, transparent 61%),
+     linear-gradient(var(--nintendoRed), var(--nintendoRed));
+  background-repeat: no-repeat;
+  background-size: 5vw 5vw, cover;
+  background-position: center 20%;
+	border: 1.2vw solid white;
+	width: 13%;
+	height: 100%;
 	position: absolute;
-	left: 55.5%;
+	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 0 20px 20px 0;
+	transform: translate(-110%, -50%);
+	border-radius: 5vw 0 0 5vw;
+  z-index: 1;
+
+  animation-name: mouveout2;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+}
+section:last-of-type h2::after{
+	content: "";
+	background:
+     radial-gradient(var(--nintendoRed) 60%, transparent 61%),
+     linear-gradient(white, white);
+  background-repeat: no-repeat;
+  background-size: 5vw 5vw, cover;
+  background-position: center 65%;
+	width: 13%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(10%, -100%);
+	border-radius: 0 5vw 5vw 0;
+  z-index: 1;
+
+  animation-name: movedown, mouveout1;
+  animation-duration: .3s, 5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0s, 1s;
+  animation-timing-function: linear, ease-in-out;
+  animation-direction: normal, normal;
+}
+
+section:last-of-type span{
+  text-align: center;
+  width: 0%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+
+  animation-name: showSpawns, showSpawns2;
+  animation-duration: 5s, .1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+section:last-of-type span:first-of-type{
+  font-family: nintendo;
+  text-transform: uppercase;
+  font-size: 9vw;
+
+  animation-delay: 1s, 1s;
+}
+section:last-of-type span:last-of-type{
+  font-family: switch;
+  text-transform: uppercase;
+  font-size: 10.8vw;
+
+  animation-delay: 1s, 4.6s;
+}
+
+@keyframes movedown {
+  from{
+    transform: translate(10%, -150%);
+  }
+  to{
+    transform: translate(10%, -50%);
+  }
+}
+@keyframes impact {
+  from{
+    transform: translateY(0%);
+  }
+  to{
+    transform: translateY(25%);
+  }
+}
+@keyframes mouveout1 {
+  0%{
+    left: 50%;
+  }
+  15%{
+    left: 48.5%;
+  }
+  40%{
+    left: 80%;
+  }
+  50%{
+    left: 80%;
+  }
+  75%{
+    left: 48.5%;
+  }
+  100%{
+    left: 80%;
+  }
+}
+@keyframes mouveout2 {
+  0%{
+    left: 50%;
+  }
+  15%{
+    left: 51.5%;
+  }
+  40%{
+    left: 20%;
+  }
+  50%{
+    left: 20%;
+  }
+  75%{
+    left: 51.5%;
+  }
+  100%{
+    left: 20%;
+  }
+}
+@keyframes showSpawns {
+  0%{
+    width: 0%;
+  }
+  15%{
+    width: 0%;
+  }
+  40%{
+    width: 65%;
+  }
+  50%{
+    width: 65%;
+  }
+  75%{
+    width: 0%;
+  }
+  100%{
+    width: 65%;
+  }
+}
+@keyframes showSpawns2 {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* -------------------------------------------------------------------------- responsiveness */
+
+@media only screen and (min-width: 778px) {
+	section:first-of-type h2{
+		font-size: 83px;
+	}
+  section:last-of-type span:first-of-type{
+    font-size: 70px;
+  }
+  section:last-of-type span:last-of-type{
+    font-size: 84px;
+  }
+  section:last-of-type h2::before{
+  	border-radius: 40px 0 0 40px;
+    border: 8px solid white;
+    background-size: 40px 40px, cover;
+  }
+  section:last-of-type h2::after{
+  	border-radius: 0 40px 40px 0;
+    background-size: 40px 40px, cover;
+  }
 }

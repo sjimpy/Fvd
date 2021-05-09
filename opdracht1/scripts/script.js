@@ -1,8 +1,7 @@
-// JavaScript Document
 window.addEventListener("resize", checkWindowSize);
 var thunmbsticks = document.querySelectorAll("h2")[1];
 
-checkWindowSize()
+checkWindowSize();
 function checkWindowSize() {
   var secrion2 = document.querySelectorAll("section")[1];
   var sectionsize = secrion2.offsetWidth;

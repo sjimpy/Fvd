@@ -3,21 +3,30 @@
 	src: url('../fonts/eenfont.woff2') format('woff2'),
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
-	fonxwt-style: normal;
+	font-style: normal;
 }
 
 @font-face {
 	font-family: 'minecraft';
-	src: url('../fonts/MinecrafterAlt.woff') format('woff');
+	src: url('../fonts/MinecrafterAlt.woff2') format('woff2'),
+			 url('../fonts/MinecrafterAlt.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
 	font-family: 'nintendo';
-	src: url('../fonts/nintendo.woff') format('woff');
+	src: url('../fonts/nintendo.woff2') format('woff2'),
+	 		 url('../fonts/nintendo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
 	font-family: 'switch';
-	src: url('../fonts/switch.woff') format('woff');
+	src: url('../fonts/switch.woff2') format('woff2'),
+			 url('../fonts/switch.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 :root{
@@ -73,9 +82,6 @@
 	--mcKlr36:#509026;
 	--mcKlr37:#6bab41;
 
-
-
-
   --nintendoRed:#d6001c;
 }
 
@@ -94,47 +100,8 @@
   	--textshadow:black;
   	--textcolor:-webkit-linear-gradient(#94938b, #c1bcb7);
   	--explosioncolor:white;
-
-  	--mcKlr1:#966c4a;
-  	--mcKlr2:#593d29;
-  	--mcKlr3:#8dbc5d;
-  	--mcKlr4:#75b54b;
-  	--mcKlr5:#74b44a;
-  	--mcKlr6:#79553a;
-  	--mcKlr7:#6c6c6c;
-  	--mcKlr8:#6cac42;
-  	--mcKlr9:#76b64c;
-  	--mcKlr10:#9ccb6c;
-  	--mcKlr11:#8ab95a;
-  	--mcKlr12:#73b349;
-  	--mcKlr13:#b98555;
-  	--mcKlr14:#64a43a;
-  	--mcKlr15:#81b051;
-  	--mcKlr16:#66a63c;
-  	--mcKlr17:#71b147;
-  	--mcKlr18:#69a93f;
-  	--mcKlr19:#83b253;
-  	--mcKlr20:#6faf45;
-  	--mcKlr21:#68a83e;
-  	--mcKlr22:#5f9f35;
-  	--mcKlr23:#62a238;
-  	--mcKlr24:#7ebe54;
-  	--mcKlr25:#7fbf55;
-  	--mcKlr26:#7fbf55;
-  	--mcKlr27:#6dad43;
-  	--mcKlr28:#92c162;
-  	--mcKlr29:#90bf60;
-  	--mcKlr30:#6aaa40;
-  	--mcKlr31:#97c667;
-  	--mcKlr32:#67a73d;
-  	--mcKlr33:#61a137;
-  	--mcKlr34:#57972d;
-  	--mcKlr35:#60a036;
-  	--mcKlr36:#509026;
-  	--mcKlr37:#6bab41;
   }
 }
-
 
 /* ALGEMENE STYLING */
 *{
@@ -167,6 +134,7 @@ h1{
 	padding: 1em;
 }
 section{
+  position: relative;
 	width: 90vw;
 	height: 90vw;
 	max-width: 700px;
@@ -183,7 +151,6 @@ section{
 }
 
 /* -------------------------------------------------------------------------- 1e sectie */
-
 section:first-of-type{
 	background-image:
 		linear-gradient(var(--mcKlr1), var(--mcKlr1)),
@@ -522,6 +489,7 @@ section:first-of-type::before{
 	height: 5%;
 	animation-name: cloudAni1;
 	animation-delay: var(--cloudDistance);
+  z-index: 1;
 }
 section:first-of-type::after{
 	top: 30%;
@@ -529,6 +497,7 @@ section:first-of-type::after{
 	height: 5%;
 	animation-name: cloudAni2;
 	animation-delay: var(--cloudDistance);
+  z-index: 1;
 }
 
 section:first-of-type h2::before{
@@ -601,7 +570,6 @@ section:first-of-type h2 span:nth-of-type(1):before{
   content: "m";
   padding-top: 13%;
 }
-
 /* -------------------------------------------------------------------------- LETTER "I" */
 section:first-of-type h2 span:nth-of-type(2){
 	text-shadow: 1px 1px var(--textshadow),
@@ -618,8 +586,6 @@ section:first-of-type h2 span:nth-of-type(2):before{
   content: "i";
   padding-top: 30%;
 }
-
-
 /* -------------------------------------------------------------------------- LETTER "N" */
 section:first-of-type h2 span:nth-of-type(3){
 	text-shadow: 1px 1px var(--textshadow),
@@ -636,8 +602,6 @@ section:first-of-type h2 span:nth-of-type(3):before{
   content: "n";
   padding-top: 13%;
 }
-
-
 /* -------------------------------------------------------------------------- LETTER "E" */
 section:first-of-type h2 span:nth-of-type(4){
 	text-shadow: 1px 1px var(--textshadow),
@@ -654,7 +618,6 @@ section:first-of-type h2 span:nth-of-type(4):before{
   content: "e";
   padding-top: 15%;
 }
-
 /* -------------------------------------------------------------------------- LETTER "C" */
 section:first-of-type h2 span:nth-of-type(5){
 	text-shadow: 0px 1px var(--textshadow),
@@ -671,7 +634,6 @@ section:first-of-type h2 span:nth-of-type(5):before{
   content: "c";
   padding-top: 15%;
 }
-
 /* -------------------------------------------------------------------------- LETTER "R" */
 section:first-of-type h2 span:nth-of-type(6){
 	text-shadow: -1px 1px var(--textshadow),
@@ -689,8 +651,6 @@ section:first-of-type h2 span:nth-of-type(6):before{
   content: "r";
   padding-top: 15%;
 }
-
-
 /* -------------------------------------------------------------------------- LETTER "A" */
 section:first-of-type h2 span:nth-of-type(7){
 	text-shadow: -1px 1px var(--textshadow),
@@ -778,7 +738,7 @@ section:first-of-type:hover h2 span:nth-of-type(9){
 }
 
 
-
+/* -------------------------------------------------------------------------- animaties minecraft */
 @keyframes cloudAni1 {
   from {
 		left: -10%;
@@ -1179,6 +1139,7 @@ section:last-of-type:hover h2{
   animation-name: impact;
 }
 
+/* -------------------------------------------------------------------------- animaties nintendo */
 
 @keyframes movedown {
   from{
@@ -1285,11 +1246,5 @@ section:last-of-type:hover h2{
   section:last-of-type h2::after{
   	border-radius: 0 40px 40px 0;
     background-size: 40px 40px, cover;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  body{
-    background-color: red !important;
   }
 }

@@ -6,9 +6,9 @@
 Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Nb. de standaardstructuur en de spartaanse opmaak zijn helemaal prima. Het gaat om de inhoud van je procesverslag. Besteedt de tijd voor pracht en praal aan je website.
 
 ## Bronnenlijst
-- https://www.w3schools.com/
+- https://stackoverflow.com/questions/14651306/get-mouse-position-within-div
 
-## Je 'posts' (je code-dagboek)
+##Mijn code-dagboek
 
 ### Week 1
 #### Wat was ik van plan?
@@ -36,6 +36,8 @@ Ik ben deze week niet op lastige punten gekomen.
 #### Wat ga ik nog doen?
 De pagina verder uitbouwen en gaan verzinnen hoe ik de letters van de Minecraft animatie in 3d kan krijgen.
 
+![alt text](./images/sc1.png "De HTML basis opzet.")
+
 ### Week 3
 #### Wat was ik van plan?
 Deze week wilde ik de (3d) letters en wolken van Minecraft afhebben. Ook wilde ik de basisvormen van het Nintendo Switch logo hebben gemaakt.
@@ -48,6 +50,8 @@ Het 3d effect van de letters in perspectief krijgen was niet perse lastig maar w
 #### Wat ga ik nog doen?
 Voor de onderkant van de Minecraft animatie moet ik nog veel background gradients schrijven zodat ik het patroon van een Minecraft block kan namaken. Ook moet ik de animaties van beide Logo's nog afmaken.
 
+![alt text](./images/sc2.png "De CSS die ik gebruik om de wolken een 3e effect te geven.")
+
 ### Week 4
 #### Wat was ik van plan?
 Voor deze week wilde ik alle animaties afronden, de Minecraft background maken, dark mode maken doormiddel van css variables, de thumbsticks van Nintendo switch animeren en de diepte van de wolken mee animeren zodat het er realistischer uit ziet.
@@ -59,5 +63,9 @@ ik ben erg tevreden over het gehele proces. Op een gegeven moment kwam ik op een
 1. De onderkant van de Minecraft animatie bestaat uit allemaal gradients. Het heeft me veel tijd gekost om deze allemaal op kleur en op de juiste positie neer te zetten.
 2. Ik wilde perse een gradient op de Minecraft letters hebben. Doordat ik de 3d effecten heb gemaakt met text-shadow was dat niet te doen op de normale mannier. Uiteindelijk heb ik dit opgelost door elke letter een :berfore te geven met daarin de zelfde letter met een gradient.
 3. De thumbsticks van de switch controllers heb ik gemaakt met background gradients op een :after element. Toen ik begon met het animeren op basis van de muis positie kwam ik er pas achter dat het niet mogelijk is om :before of :after elementen te bewerken in JS. Na lang nadenken heb ik een mannier gevonden doormiddel van het toevoegen van classes aan de elementen van de :afters. Op die mannier kan ik toch de positie veranderen zodra de class veranderd.
+
+![alt text](./images/sc3.png "Met dit stukje JS laat ik de thumbsticks bewegen ook al zijn ze gemaakt met :after.")
+
+
 #### Wat ga ik nog doen?
 Genieten van het eindresultaat en testen of de opdracht voldoet aan alle eisen.

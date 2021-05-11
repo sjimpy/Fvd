@@ -8,7 +8,7 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 ## Bronnenlijst
 - https://stackoverflow.com/questions/14651306/get-mouse-position-within-div
 
-##Mijn code-dagboek
+## Mijn code-dagboek
 
 ### Week 1
 #### Wat was ik van plan?

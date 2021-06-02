@@ -69,3 +69,15 @@ ik ben erg tevreden over het gehele proces. Op een gegeven moment kwam ik op een
 
 #### Wat ga ik nog doen?
 Genieten van het eindresultaat en testen of de opdracht voldoet aan alle eisen.
+
+
+
+
+
+
+
+
+
+
+
+https://www.pngitem.com/middle/ihJJmRw_transparent-mario-kart-8-png-png-download/

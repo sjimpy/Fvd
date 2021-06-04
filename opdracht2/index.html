@@ -14,36 +14,37 @@
 
 <body>
 	<div class="carouselcontainer">
+		<h1>Mushroom Cup</h1>
 		<div class="carousel">
-			<div class="item item0">1</div>
-			<div class="item item1">2</div>
-			<div class="item item2">3</div>
-			<div class="item item3">4</div>
-			<div class="item item4">5</div>
-			<div class="item item5">6</div>
-			<div class="item item6">7</div>
-			<div class="item item7">8</div>
-			<div class="item item8">9</div>
-			<div class="item item9">10</div>
-			<div class="item item10">11</div>
-			<div class="item item11">12</div>
+			<div class="item0"></div>
+			<div class="item1"></div>
+			<div class="item2"></div>
+			<div class="item3"></div>
+			<div class="item4"></div>
+			<div class="item5"></div>
+			<div class="item6"></div>
+			<div class="item7"></div>
+			<div class="item8"></div>
+			<div class="item9"></div>
+			<div class="item10"></div>
+			<div class="item11"></div>
 		</div>
 	</div>
 	<div class="scorecontainer">
 		<div class="tracks">
-			<div class="baan">
+			<div class="baan baan1">
 				<p>record</p>
 				<h2>naam</h2>
 			</div>
-			<div class="baan">
+			<div class="baan baan2">
 				<p>record</p>
 				<h2>naam</h2>
 			</div>
-			<div class="baan">
+			<div class="baan baan3">
 				<p>record</p>
 				<h2>naam</h2>
 			</div>
-			<div class="baan">
+			<div class="baan baan4">
 				<p>record</p>
 				<h2>naam</h2>
 			</div>
@@ -56,21 +57,20 @@
 				<li>
 					Jimmy <span>10.3s</span>
 				</li>
-				<li>
-					Jimmy <span>10.3s</span>
-				</li>
-				<li>
-					Jimmy <span>10.3s</span>
-				</li>
-				<li>
-					Jimmy <span>10.3s</span>
-				</li>
-				<li>
-					Jimmy <span>10.3s</span>
-				</li>
 			</ol>
+			<div class="addscores">+</div>
 		</div>
 	</div>
+
+	<form>
+		<span>close</span>
+		<p>naam:</p>
+		<input type="text" name="name" placeholder="naam" value="jimmy" required>
+		<p>tijd (min-sec)</p>
+		<input type="number" name="min" placeholder="1" value="4" required>
+		<input type="number" name="sec" placeholder="10" value="10" required>
+		<input type="submit" name="submit" value="sla op">
+	</form>
 	<script src="scripts/script.js"></script>
 </body>
 

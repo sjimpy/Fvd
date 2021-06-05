@@ -217,7 +217,7 @@ else {
 }
 
 
-
+var canSpin = true;
 var title = document.querySelectorAll("h1")[0];
 var banen = document.getElementsByClassName('baan');
 var scorecontainer = document.getElementsByClassName('scorecontainer')[0];
@@ -247,6 +247,12 @@ document.addEventListener("keydown", function(i) {
   }
 })
 
+var headerbutton  = document.getElementsByClassName('header')[0].querySelectorAll("button");
+headerbutton[0].addEventListener("click", prev);
+headerbutton[1].addEventListener("click", next);
+document.getElementsByClassName('left')[0].addEventListener("click", prev);
+document.getElementsByClassName('right')[0].addEventListener("click", next);
+
 for (var i = 0; i < banen.length; i++) {
   banen[i].addEventListener("click", function() {
     showScore(true);
@@ -255,18 +261,22 @@ for (var i = 0; i < banen.length; i++) {
 }
 
 function next() {
-  carouselPos += 1;
-  counterChecker();
-  carouselrotation -= 30;
-  carousel.style.transform = "rotateY(" + carouselrotation + "deg)";
-  changeCarouselItems(carouselPos);
+  if (canSpin) {
+    carouselPos += 1;
+    counterChecker();
+    carouselrotation -= 30;
+    carousel.style.transform = "rotateY(" + carouselrotation + "deg)";
+    changeCarouselItems(carouselPos);
+  }
 }
 function prev() {
-  carouselPos -= 1;
-  counterChecker();
-  carouselrotation += 30;
-  carousel.style.transform = "rotateY(" + carouselrotation + "deg)";
-  changeCarouselItems(carouselPos);
+  if (canSpin) {
+    carouselPos -= 1;
+    counterChecker();
+    carouselrotation += 30;
+    carousel.style.transform = "rotateY(" + carouselrotation + "deg)";
+    changeCarouselItems(carouselPos);
+  }
 }
 
 function counterChecker() {
@@ -278,34 +288,63 @@ function counterChecker() {
   }
 }
 
-changeCarouselItems(carouselPos)
+changeCarouselItems(carouselPos);
 function changeCarouselItems(currentpos) {
   title.innerHTML = parcours[currentpos].name;
 
+  banen[0].querySelectorAll('P')[0].innerHTML = "record: " + showHighest(cups[currentpos].course[0].records);
   banen[0].querySelectorAll('h2')[0].innerHTML = parcours[currentpos].course1;
-  banen[0].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 1 + ".jpg)"
+  banen[0].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 1 + ".jpg)";
+  banen[1].querySelectorAll('P')[0].innerHTML = "record: " + showHighest(cups[currentpos].course[1].records);
   banen[1].querySelectorAll('h2')[0].innerHTML = parcours[currentpos].course2;
-  banen[1].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 2 + ".jpg)"
+  banen[1].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 2 + ".jpg)";
+  banen[2].querySelectorAll('P')[0].innerHTML = "record: " + showHighest(cups[currentpos].course[2].records);
   banen[2].querySelectorAll('h2')[0].innerHTML = parcours[currentpos].course3;
-  banen[2].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 3 + ".jpg)"
+  banen[2].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 3 + ".jpg)";
+  banen[3].querySelectorAll('P')[0].innerHTML = "record: " + showHighest(cups[currentpos].course[3].records);
   banen[3].querySelectorAll('h2')[0].innerHTML = parcours[currentpos].course4;
-  banen[3].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 4 + ".jpg)"
+  banen[3].style.backgroundImage = "linear-gradient(0deg, white 0%, white 100%), url(./images/" + currentpos + "_" + 4 + ".jpg)";
 }
 
+function showHighest(arr) {
+  var maxScore = 99999;
+  var inputCup = arr;
+
+  for (var i = 0; i < inputCup.length; i++) {
+      if (parseFloat(inputCup[i].time) < maxScore) {
+          maxScore = inputCup[i].time;
+      }
+  }
+  if (maxScore == 99999) {
+    maxScore = "niet gezet";
+  }
+  return(maxScore);
+}
+
+var showScoreDiv = document.getElementsByClassName('scores')[0];
 function showScore(i) {
   if (i) {
+    showScoreDiv.style.display = "block";
     scorecontainer.style.top = 0;
     document.body.style.overflow = "auto";
+    canSpin = false;
   }
   else {
+    removeActiveMenu();
     scorecontainer.style.top = "60%";
     document.body.style.overflow = "hidden";
     window.scrollTo(0,0);
+    setTimeout(function () {
+          showScoreDiv.style.display = "none";
+    }, 1100);
+    canSpin = true;
   }
 }
+
 var clickedCourse;
 var activeScores;
 function changescore(geklikteBaan) {
+  removeActiveMenu();
   if (geklikteBaan == "baan1") {
     clickedCourse = 0;
   }
@@ -318,9 +357,17 @@ function changescore(geklikteBaan) {
   else if (geklikteBaan == "baan4") {
     clickedCourse = 3;
   }
+  banen[clickedCourse].classList.add("active");
   activeScores = cups[carouselPos].course[clickedCourse].records;
   sortscore();
   showScores();
+}
+
+
+function removeActiveMenu() {
+  for (var i = 0; i < banen.length; i++) {
+    banen[i].classList.remove("active");
+  }
 }
 
 function sortscore() {
@@ -343,24 +390,22 @@ function showScores(el, spn) {
   }
   if (activeScores.length == 0) {
     el = document.createElement("P");
-    el.innerHTML = "Er is nog geen highscore voor deze baan, Wees de eerste!";
+    el.innerHTML = "Er is nog geen highscore voor deze baan, ben jij de eerste?";
     scoreList.appendChild(el);
   }
 }
 
-
-
 var showform = document.getElementsByClassName('addscores')[0];
-var closeform = document.querySelectorAll("form")[0].querySelectorAll("span")[0];
+var closeform = document.getElementsByClassName("formcontainer")[0].querySelectorAll("button")[0];
 showform.addEventListener("click", showForm);
 closeform.addEventListener("click", hideForm);
 
 
 function showForm() {
-  document.querySelectorAll("form")[0].style.display = "flex";
+  document.getElementsByClassName("formcontainer")[0].style.display = "flex";
 }
 function hideForm() {
-  document.querySelectorAll("form")[0].style.display = "none";
+  document.getElementsByClassName("formcontainer")[0].style.display = "none";
 }
 
 
@@ -368,18 +413,19 @@ var form = document.querySelectorAll("form")[0];
 form.addEventListener('submit', function (event) {
   event.preventDefault();
   addNewTime();
+  form.reset();
 });
 
 function addNewTime(obj, str) {
   obj = {};
   obj.name = form.name.value;
-  obj.time = form.min.value + ":" + form.sec.value;
+  obj.time = form.min.value + "." + form.sec.value;
   cups[carouselPos].course[clickedCourse].records.push(obj);
-  // console.log(cups);
   str = JSON.stringify(cups);
   createCookie('speedRecords', JSON.stringify(cups));
   showScores();
   hideForm();
+  changeCarouselItems(carouselPos);
 }
 
 
@@ -415,3 +461,51 @@ function getCookie(c_name) {
     }
     return "";
 }
+
+
+
+
+
+
+
+
+// bron = https://gist.github.com/SleepWalker/da5636b1abcbaff48c4d
+let touchstartX = 0;
+   let touchstartY = 0;
+   let touchendX = 0;
+   let touchendY = 0;
+
+   function handleGesture(touchstartX, touchstartY, touchendX, touchendY) {
+       const delx = touchendX - touchstartX;
+       const dely = touchendY - touchstartY;
+       if(Math.abs(delx) > Math.abs(dely)){
+           if(delx > 0) return "right"
+           else return "left"
+       }
+       else if(Math.abs(delx) < Math.abs(dely)){
+           if(dely > 0) return "down"
+           else return "up"
+       }
+       else return "tap"
+   }
+
+const gestureZone = document.getElementsByClassName('carouselcontainer')[0];
+   gestureZone.addEventListener('touchstart', function(event) {
+       touchstartX = event.changedTouches[0].screenX;
+       touchstartY = event.changedTouches[0].screenY;
+   }, false);
+
+   gestureZone.addEventListener('touchend', function(event) {
+       touchendX = event.changedTouches[0].screenX;
+       touchendY = event.changedTouches[0].screenY;
+       var swipeDir = handleGesture(touchstartX, touchstartY, touchendX, touchendY);
+       if (swipeDir == "left") {
+        next();
+        console.log("left");
+       }
+       else if (swipeDir == "right") {
+        prev();
+        console.log("right");
+       }
+       console.log();
+   }, false);

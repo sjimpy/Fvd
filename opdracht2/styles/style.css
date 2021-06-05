@@ -7,7 +7,13 @@
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-
+}
+@font-face {
+	font-family: 'supermario';
+	src: url('../fonts/SuperMario256.woff2') format('woff2'),
+			 url('../fonts/SuperMario256.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 :root{
@@ -17,6 +23,15 @@
 html{
 	scroll-behavior: smooth;
 }
+button{
+	background-color: transparent;
+	color: white;
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-size: auto;
+	font-family:supermario, sans-serif;
+}
 
 *, *::after, *::before {
   box-sizing:border-box;
@@ -25,7 +40,7 @@ html{
 }
 
 body {
-  font-family:eenfont, sans-serif;
+  font-family:supermario, sans-serif;
   color:#111;
 	background-image: url(../images/bg.jpeg);
 	width: 100vw;
@@ -40,13 +55,68 @@ body {
 	perspective: 100vw;
 	overflow: hidden;
 }
-.carouselcontainer h1{
+.carouselcontainer .header{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	top: 13%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family:supermario, sans-serif;
+}
+.header button{
+	font-size: 2em;
+	transition: .2s;
+	position: absolute;
+	transform-origin: center center;
+		font-family:eenfont, sans-serif;
+}
+.header button:first-of-type{
+	left: 50%;
+	transform: translate(-135px, -18%);
+}
+.header button:last-of-type{
+	right: 50%;
+	transform: translate(135px, -18%);
+}
+.header button:hover{
+	font-size: 2.4em;
+	text-shadow: 0 0 3px black;
+	cursor: pointer;
+}
+.header button:active{
+	font-size: 1.5em;
+	text-shadow: 0 0 3px black;
+	cursor: pointer;
+}
+.header h1{
+	white-space:nowrap;
 	position: relative;
 	text-align: center;
-	top: 13%;
 	color: white;
+	font-size: 1.4em;
+}
+
+.carouselcontainer .left, .carouselcontainer .right{
+	position: absolute;
+	background-color: transparent;
+	width: 30%;
+	height: 50%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	top: 50%;
 	transform: translateY(-50%);
 }
+.carouselcontainer .left{
+	left: 0;
+}
+.carouselcontainer .right{
+	right: 0;
+}
+
+
 .carousel{
 	left: 0;
 	top: 0;
@@ -93,31 +163,31 @@ body {
 }
 .item4{
 	transform: rotateY(120deg) translateZ(var(--carouselZsize));
-	background-position:80% 0%;
+	background-position:0% 100%;
 }
 .item5{
 	transform: rotateY(150deg) translateZ(var(--carouselZsize));
-	background-position:100% 0%;
+	background-position:20% 100%;
 }
 .item6{
 	transform: rotateY(180deg) translateZ(var(--carouselZsize));
-	background-position:0% 100%;
+	background-position:100% 0%;
 }
 .item7{
 	transform: rotateY(210deg) translateZ(var(--carouselZsize));
-	background-position:20% 100%;
+	background-position:60% 100%;
 }
 .item8{
 	transform: rotateY(240deg) translateZ(var(--carouselZsize));
-	background-position:40% 100%;
+	background-position:80% 0%;
 }
 .item9{
 	transform: rotateY(270deg) translateZ(var(--carouselZsize));
-	background-position:60% 100%;
+	background-position:80% 100%;
 }
 .item10{
 	transform: rotateY(300deg) translateZ(var(--carouselZsize));
-	background-position:80% 100%;
+	background-position:40% 100%;
 }
 .item11{
 	transform: rotateY(330deg) translateZ(var(--carouselZsize));
@@ -135,6 +205,7 @@ body {
 	overflow: hidden;
 }
 .tracks{
+	z-index: 1;
 	position: relative;
 	width: 100%;
 	height: 40vh;
@@ -168,6 +239,30 @@ body {
 	height: 30px;
 	margin-right: 10px;
 	background-color: red;
+	border-radius: 100px;
+	transition: .3s;
+}
+.close:hover{
+	transform: scale(1.1);
+	box-shadow: 0 0 2px black;
+}
+.close:active{
+	box-shadow: inset 0 0 2px black;
+}
+.close::before, .close::after{
+	content: "";
+	width: 60%;
+	height: 3px;
+	background-color: white;
+	position: absolute;
+	left: 50%;
+	border-radius: 10px;
+}
+.close::before{
+		transform: translate(-50%, -50%) rotate(-45deg);
+}
+.close::after{
+		transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .baan{
@@ -184,70 +279,72 @@ body {
 	transition: .3s;
 	background-size: 100% 25%, cover;
 }
-.baan:hover, .close:hover{
-	transform: scale(1.1);
-	box-shadow:0 0 4px black, inset 0 0 0 black;
+.baan:hover{
+	transform: scale(1.01);
+	box-shadow:0 0 0 black, inset 0 0 0 black;
 }
 .baan p{
+	position: absolute;
+	top: 0;
 	color: black;
 	width: 100%;
 	text-align: center;
 	transform: translateY(-140%);
+	font-size: 1.2em;
+	transition: .3s;
 }
 .baan h2{
 	position: absolute;
 	width: 100%;
 	height: 27%;
 	bottom: 0;
-	font-size: 1.1em;
+	font-size: 1.3em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: black;
+	transition: .3s;
 }
-@media only screen and (max-width: 1200px) {
-	.baan h2{
-		font-size: .85em;
-	}
+.active{
+	box-shadow:0 0 0 black, inset 0 0 0 black;
+	background-size: 100% 100%, cover;
 }
-@media only screen and (max-width: 700px) {
-	.baan{
-		width: 34vw;
-		height: 12vh;
-	}
-	.baan:nth-of-type(1), .baan:nth-of-type(2){
-		margin-top: 3%;
-	}
-	.baan:nth-of-type(3), .baan:nth-of-type(4){
-		margin-bottom: 3%;
-	}
+.active h2{
+	height: 100%;
 }
-
+.active p{
+	opacity: 0;
+	transform: translateY(-50%);
+}
 .scores{
 	position: relative;
 	width: 100%;
 	min-height: calc(60vh);
 	background-image: url(../images/bg.jpeg);
+	display: none;
 }
 .scores ol{
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
 	display: inline-flex;
-	align-items: left;
 	flex-direction: column;
 }
 .scores ol li{
 	position: relative;
 	color: white;
 	margin: .5em;
-	font-size: 2em;
+	font-family:supermario, sans-serif;
+	font-size: 1.8em;
+}
+.scores ol li span{
+	font-family:eenfont, sans-serif;
+	font-size: 1.1em;
 }
 .scores ol p:first-of-type{
 	position: relative;
 	color: white;
 	margin: .5em;
-	font-size: 2em;
 }
 .scores ol li::marker{
 	color: gray;
@@ -268,59 +365,151 @@ body {
 
 
 .addscores{
-	position: absolute;
+	position: fixed;
 	right: 0;
 	bottom: 0;
 	background-color: white;
-	width: 100px;
-	height: 100px;
+	width: 60px;
+	height: 60px;
 	border-radius: 30px 0px 0px 0px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 70px;
-	padding-bottom: .2em;
+	padding: .3em 0 0 .1em;
 	cursor: pointer;
 	transition: .3s;
 	transform-origin: right bottom;
+	color: black;
 }
 .addscores:hover{
-	transform: scale(1.05);
+	transform: scale(1.1);
 	box-shadow: 0 0 5px black;
 }
-
-form{
+.formcontainer{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
 	display: none;
+	z-index: 10;
+}
+.formcontainer::before{
+	z-index: 0;
+	content: "";
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.5);
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	padding: 1.2em;
+}
+.formcontainer form{
 	background-color: white;
-	box-shadow: 0 0 10px black;
 	border-radius: 10px;
+	box-shadow: 0 0 10px black;
+	position: relative;
+	padding: 1.2em;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	width: 300px;
+	font-family:eenfont, sans-serif;
 }
-form p{
+.formcontainer form input{
+	padding: 1em;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+.formcontainer form h3{
+	margin-bottom: .9em;
+	font-family:supermario, sans-serif;
+}
+.formcontainer form p{
+	margin-top: .9em;
 	width: 100%;
+	font-family:supermario, sans-serif;
 }
-form span{
+.formcontainer button{
 	position: absolute;
 	right: 0;
 	top: 0;
 	margin: .4em;
 	padding: 0;
 	cursor: pointer;
+	color: black;
+	transition: .3s;
 }
-form input{
+.formcontainer button:hover{
+	transform: scale(1.1);
+}
+.formcontainer form input{
 	margin: .5em 0 .5em 0;
 }
-form input:first-of-type, form input:last-of-type{
+.formcontainer form input:last-of-type{
+	margin-top: .9em;
+	background-color: #005197;
+	color: white;
+	font-family:supermario, sans-serif;
+	font-size: 1.2em;
+}
+.formcontainer form input:last-of-type:hover{
+	box-shadow: 0 0 5px black;
+}
+.formcontainer form input:last-of-type:active{
+	box-shadow: inset 0 0 5px black;
+}
+.formcontainer form input:first-of-type, form input:last-of-type{
 	width: 100%;
 }
-form input:nth-last-of-type(2), form input:nth-last-of-type(3){
-	width: 48%;
+.formcontainer form input:nth-last-of-type(2), form input:nth-last-of-type(3){
+	width: 49.4%;
 }
-/* BRAND STYLING */
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+	.baan h2{
+		font-size: .85em;
+	}
+	.baan p{
+		font-size: .9em;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.baan{
+		width: 34vw;
+		height: 12vh;
+	}
+	.baan:nth-of-type(1), .baan:nth-of-type(2){
+		margin-top: 3%;
+	}
+	.baan:nth-of-type(3), .baan:nth-of-type(4){
+		margin-bottom: 3%;
+	}
+	.baan h2{
+		font-size: .75em;
+	}
+	.baan p{
+		font-size: .75em;
+	}
+	.scores ol li{
+		font-size: 1.5em;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.baan h2{
+		font-size: .5em;
+	}
+	.baan p{
+		font-size: .5em;
+	}
+	.scores ol li{
+		font-size: 1.1em;
+	}
+}

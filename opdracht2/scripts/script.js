@@ -359,7 +359,6 @@ function changescore(geklikteBaan) {
   }
   banen[clickedCourse].classList.add("active");
   activeScores = cups[carouselPos].course[clickedCourse].records;
-  sortscore();
   showScores();
 }
 
@@ -370,12 +369,21 @@ function removeActiveMenu() {
   }
 }
 
-function sortscore() {
-  activeScores.sort((a, b) => (a.time > b.time) ? 1 : -1)
+var radiobuttons = document.getElementsByName('sort');
+for(radio in radiobuttons) {
+    radiobuttons[radio].onclick = function() {
+      showScores();
+    }
 }
 
-
-// scoreList
+function sortscore() {
+  if (radiobuttons[0].checked) {
+    activeScores.sort((a, b) => (a.time > b.time) ? 1 : -1);
+  }
+  else {
+    activeScores.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  }
+}
 
 function showScores(el, spn) {
   sortscore();
@@ -407,7 +415,6 @@ function showForm() {
 function hideForm() {
   document.getElementsByClassName("formcontainer")[0].style.display = "none";
 }
-
 
 var form = document.querySelectorAll("form")[0];
 form.addEventListener('submit', function (event) {
@@ -493,7 +500,7 @@ const gestureZone = document.getElementsByClassName('carouselcontainer')[0];
    gestureZone.addEventListener('touchstart', function(event) {
        touchstartX = event.changedTouches[0].screenX;
        touchstartY = event.changedTouches[0].screenY;
-   }, false);
+   }, {passive: true});
 
    gestureZone.addEventListener('touchend', function(event) {
        touchendX = event.changedTouches[0].screenX;
@@ -501,11 +508,8 @@ const gestureZone = document.getElementsByClassName('carouselcontainer')[0];
        var swipeDir = handleGesture(touchstartX, touchstartY, touchendX, touchendY);
        if (swipeDir == "left") {
         next();
-        console.log("left");
        }
        else if (swipeDir == "right") {
         prev();
-        console.log("right");
        }
-       console.log();
-   }, false);
+   }, {passive: true});

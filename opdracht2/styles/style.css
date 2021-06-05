@@ -138,9 +138,7 @@ body {
 	max-width: 15vh;
 	max-height: 15vh;
 	opacity: 1;
-	/* background-color: white; */
 	color: white;
-	/* backface-visibility: hidden; */
 
 	background-image: url(../images/coins.png);
 	background-size: 635%;
@@ -218,7 +216,7 @@ body {
 	justify-content: space-around;
 	align-items: center;
 }
-.nav{
+nav{
 	position: sticky;
 	width: 100%;
 	height: 50px;
@@ -227,17 +225,27 @@ body {
 	top: 0;
 	left: auto;
 	transition: .3s;
+	color: white;
 
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-
+	justify-content: space-between;
+	font-family:eenfont, sans-serif;
+	padding: 0 10px 0 10px;
+}
+nav div{
+	display: flex;
+	flex-direction: row;
+}
+nav input{
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 3px;
 }
 .close{
-	position: absolute;
+	position: relative;
 	width: 30px;
 	height: 30px;
-	margin-right: 10px;
 	background-color: red;
 	border-radius: 100px;
 	transition: .3s;

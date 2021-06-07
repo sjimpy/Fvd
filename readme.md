@@ -83,7 +83,7 @@ Genieten van het eindresultaat en testen of de opdracht voldoet aan alle eisen.
 ### Week 1
 #### Wat was ik van plan?
 Voor deze week wilde ik op een idee komen voor wat ik zou willen maken.
-![Dit zijn de schetsen die ik voor de pagina heb gemaakt](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht1/images/sc3.png "Dit zijn de schetsen die ik voor de pagina heb gemaakt")
+![Dit zijn de schetsen die ik voor de pagina heb gemaakt](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht2/images/sc1.png "Dit zijn de schetsen die ik voor de pagina heb gemaakt")
 #### Wat heb ik nu?
 Ik heb gekozen voor een webapp waarop je de snelste tijden van je Mario Kart races kan opslaan. Ik wil de verschillende courses weergeven in een carousel en de desbetreffende banen daar onder laten zien. Als de gebruiker op een van de banen drukt moet deze ophoog schuiven en de behaalde scores laten zien.
 #### Wat ging er goed?
@@ -98,7 +98,7 @@ Volgende week ga ik beginnen met de html en css opbouw van de pagina.
 Voor deze week wilde ik de basis van de website hebben gemaakt, nog zonder afbeeldingen en responsiveness.
 #### Wat heb ik nu?
 Ik heb de carousel gemaakt en de vakken er onder gezet. Qua funcies werkt er nog niets maar de layout is er.
-![Dit is de layout van de pagina.](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht1/images/sc3.png "Dit is de layout van de pagina")
+![Dit is de layout van de pagina.](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht2/images/sc2.png "Dit is de layout van de pagina")
 #### Wat ging er goed?
 De layout was redelijk makkelijk neergezet, ik heb rekening gehouden met de responsiveness dus dat zou redelijk snel gedaan moeten zijn.
 #### Wat was lastig?
@@ -111,7 +111,7 @@ De volgende stap is het aanmaken van een array zodat ik alle namen en afbeelding
 Voor deze week wilde ik een array maken die alle namen van de banen laat zien.
 #### Wat heb ik nu?
 Ik heb de array gemaakt en alle namen van de banen in de html geladen zetten. Ook ben ik verder gegaan met het maken van een array met meerdere objecten zodat ik de scores kan weergeven.
-![Met dit stukje JS laat ik de thumbsticks bewegen ook al zijn ze gemaakt met :after.](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht1/images/sc3.png "Met dit stukje JS laat ik de thumbsticks bewegen ook al zijn ze gemaakt met :after.")
+![Dit is de array waar ik de namen van de banen opsla.](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht2/images/sc3.png "Dit is de array waar ik de namen van de banen opsla.")
 #### Wat ging er goed?
 De array met namen ging erg snel en werkte ook in een keer goed.
 #### Wat was lastig?
@@ -123,10 +123,11 @@ Ik ga de pagina verder responsive maken en een knop toevoegen om nieuwe scores a
 #### Wat was ik van plan?
 Voor deze week wilde ik de pagina helemaal af hebben.
 #### Wat heb ik nu?
-De pagina is af, ik heb een form toegevoegd die scores aan de objecten kan toevoegen. Om nog wat extra's te doen heb ik er voor gezorgd dat de array met scores kan worden opgeslagen doormiddel van cookies. Ook heb ik radiobuttons aan de nav toegevoegd zodat gebruikers de scores kunnen sorteren op score en op naam. De carousel kan je nu besturen door swipe op mobiel en de highscores worden nu ook vantevoren weergegeven.
-![Met dit stukje JS laat ik de thumbsticks bewegen ook al zijn ze gemaakt met :after.](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht1/images/sc3.png "Met dit stukje JS laat ik de thumbsticks bewegen ook al zijn ze gemaakt met :after.")
+De pagina is af, ik heb een form toegevoegd die scores aan de objecten kan toevoegen. Om nog wat extra's te doen heb ik er voor gezorgd dat de array met scores kan worden opgeslagen doormiddel van cookies. Ook heb ik radiobuttons aan de nav toegevoegd zodat gebruikers de scores kunnen sorteren op score en op naam. De carousel kan je nu besturen door swipe op mobiel en de highscores worden nu ook van tevoren weergegeven.
+![Dit is het formulier dat ik heb gemaakt](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht2/images/sc4.png "Dit is het formulier dat ik heb gemaakt")
 #### Wat ging er goed?
 Het hele proces ging best goed, Ik heb mezelf proberen uit te dagen door dingen net even anders te doen dan ik notmaal zou doen. Het responsiveness gedeelte en de darkmode was ook erg snel en makkelijk gemaakt.
+![De darkmode](https://raw.githubusercontent.com/sjimpy/Fvd/main/opdracht2/images/sc5.png "De darkmode")
 #### Wat was lastig?
 Het sorteren en van de scores en het toevoegen van de scores was niet erg makkelijk. Voor het formulier moest ik wat nieuwe dingetjes proberen zodat de pagina niet herladen zou worden bij submit.
 

@@ -14,6 +14,8 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 - https://stackoverflow.com/questions/5876424/sort-array-of-objects
 
+- https://www.pngitem.com/middle/ihJJmRw_transparent-mario-kart-8-png-png-download/
+
 
 
 
@@ -133,8 +135,3 @@ Het sorteren en van de scores en het toevoegen van de scores was niet erg makkel
 
 #### Wat ga ik nog doen?
 Mijn werk presenteren en zo snel mogelijk genieten van de vakantie.
-
-
-
-
-https://www.pngitem.com/middle/ihJJmRw_transparent-mario-kart-8-png-png-download/

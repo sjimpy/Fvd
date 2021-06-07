@@ -229,9 +229,17 @@ var carouselrotation = 0;
 
 var scoreList = document.querySelectorAll("ol")[0];
 
+var headerbutton  = document.getElementsByClassName('header')[0].querySelectorAll("button");
+var showScoreDiv = document.getElementsByClassName('scores')[0];
 
+var clickedCourse;
+var activeScores;
 
+var showform = document.getElementsByClassName('addscores')[0];
+var closeform = document.getElementsByClassName("formcontainer")[0].querySelectorAll("button")[0];
+var form = document.querySelectorAll("form")[0];
 
+var radiobuttons = document.getElementsByName('sort');
 
 
 close.addEventListener("click", function() {
@@ -247,7 +255,12 @@ document.addEventListener("keydown", function(i) {
   }
 })
 
-var headerbutton  = document.getElementsByClassName('header')[0].querySelectorAll("button");
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  addNewTime();
+  form.reset();
+});
+
 headerbutton[0].addEventListener("click", prev);
 headerbutton[1].addEventListener("click", next);
 document.getElementsByClassName('left')[0].addEventListener("click", prev);
@@ -309,7 +322,6 @@ function changeCarouselItems(currentpos) {
 function showHighest(arr) {
   var maxScore = 99999;
   var inputCup = arr;
-
   for (var i = 0; i < inputCup.length; i++) {
       if (parseFloat(inputCup[i].time) < maxScore) {
           maxScore = inputCup[i].time;
@@ -321,7 +333,6 @@ function showHighest(arr) {
   return(maxScore);
 }
 
-var showScoreDiv = document.getElementsByClassName('scores')[0];
 function showScore(i) {
   if (i) {
     showScoreDiv.style.display = "block";
@@ -341,8 +352,7 @@ function showScore(i) {
   }
 }
 
-var clickedCourse;
-var activeScores;
+
 function changescore(geklikteBaan) {
   removeActiveMenu();
   if (geklikteBaan == "baan1") {
@@ -362,20 +372,19 @@ function changescore(geklikteBaan) {
   showScores();
 }
 
-
 function removeActiveMenu() {
   for (var i = 0; i < banen.length; i++) {
     banen[i].classList.remove("active");
   }
 }
 
-var radiobuttons = document.getElementsByName('sort');
 for(radio in radiobuttons) {
     radiobuttons[radio].onclick = function() {
       showScores();
     }
 }
 
+// https://stackoverflow.com/questions/5876424/sort-array-of-objects
 function sortscore() {
   if (radiobuttons[0].checked) {
     activeScores.sort((a, b) => (a.time > b.time) ? 1 : -1);
@@ -403,12 +412,6 @@ function showScores(el, spn) {
   }
 }
 
-var showform = document.getElementsByClassName('addscores')[0];
-var closeform = document.getElementsByClassName("formcontainer")[0].querySelectorAll("button")[0];
-showform.addEventListener("click", showForm);
-closeform.addEventListener("click", hideForm);
-
-
 function showForm() {
   document.getElementsByClassName("formcontainer")[0].style.display = "flex";
 }
@@ -416,12 +419,7 @@ function hideForm() {
   document.getElementsByClassName("formcontainer")[0].style.display = "none";
 }
 
-var form = document.querySelectorAll("form")[0];
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  addNewTime();
-  form.reset();
-});
+
 
 function addNewTime(obj, str) {
   obj = {};

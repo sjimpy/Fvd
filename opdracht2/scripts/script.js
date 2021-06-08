@@ -255,6 +255,9 @@ document.addEventListener("keydown", function(i) {
   }
 })
 
+showform.addEventListener("click", showForm);
+closeform.addEventListener("click", hideForm);
+
 form.addEventListener('submit', function (event) {
   event.preventDefault();
   addNewTime();
@@ -263,6 +266,7 @@ form.addEventListener('submit', function (event) {
 
 headerbutton[0].addEventListener("click", prev);
 headerbutton[1].addEventListener("click", next);
+
 document.getElementsByClassName('left')[0].addEventListener("click", prev);
 document.getElementsByClassName('right')[0].addEventListener("click", next);
 
